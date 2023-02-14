@@ -1,0 +1,53 @@
+[
+    {
+        "peliculas":
+    [
+        {
+            "id" : 1 ,
+            "titulo" : "Rapidos y Furiosos 2 " ,
+            "año" : "2009" ,
+            "director" : "Justin Lin" ,
+            "genero" : "Accion" ,
+            "sinopsis" : " El exconvicto Dominic Toretto se une a su viejo adversario, Brian O'Conner, que ahora trabaja para el FBI en Los Ángeles, con el fin de infiltrarse en una organización criminal que se dedica a introducir heroína en la ciudad.",
+            "enlace" : ""
+         },
+         {
+            "id" : 2 ,
+            "titulo" : "High School Musical 2" ,
+            "año" : "2007" ,
+            "director" : "Kenny Ortega" ,
+            "genero" : "Musical" ,
+            "sinopsis" : "Durante las vacaciones de verano, Troy obtiene un trabajo en el complejo de Sharpay, pero él no conoce las verdaderas intenciones de la muchacha " ,
+            "enlace" : ""
+         },
+         {
+            "id" : 3,
+            "titulo" : "Titanic" ,
+            "año" : "1997" ,
+            "director" : "James Cameron" ,
+            "genero" : "Romance" ,
+            "sinopsis" : "Una joven de la alta sociedad abandona a su arrogante pretendiente por un artista humilde en el trasatlántico que se hundió durante su viaje inaugural." ,
+            "enlace" : ""
+         },
+         {
+            "id" : 4,
+            "titulo" : "Una esposa de mentira" ,
+            "año" : "2011" ,
+            "director" : "Dennis Dugan" ,
+            "genero" : "Comedia" ,
+            "sinopsis" : "El cirujano Danny decide contratar a su ayudante Katherine, una madre soltera con hijos, para que finjan ser su familia. Su intención es demostrarle a Palmer que su amor por ella es tan grande que está a punto de divorciarse de su mujer." ,
+            "enlace" : ""
+         },
+         {
+            "id" : 5,
+            "titulo" : "Spider-Man: sin camino a casa" ,
+            "año" : "2021" ,
+            "director" : "Jon Watts" ,
+            "genero" : "Accion" ,
+            "sinopsis" : "Tras descubrirse la identidad secreta de Peter Parker como Spider-Man, la vida del joven se vuelve una locura. Peter le pide ayuda al Doctor Strange para recuperar su vida, pero algo sale mal y provoca una fractura en el multiverso." ,
+            "enlace" : ""
+         }
+         
+    ]
+    }
+]

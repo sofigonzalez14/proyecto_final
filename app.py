@@ -9,3 +9,4 @@ app = Flask(__name__)
 @app.route("/usuarios")
 def devolver_usuarios():
     return jsonify(usuarios)
+    

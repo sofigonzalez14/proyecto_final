@@ -9,5 +9,5 @@ Crear un programa en python para mantener una lista de películas recomendadas p
 - Python
 - Json
 - Flask
-- Postman 
 - GitHub
+- Postman 

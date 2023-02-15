@@ -18,3 +18,5 @@ with open("usuarios.json",encoding='utf-8') as usuarios.json:
 usuarios=usuarios[0]['usuarios']
 
 print("CARTELERA\n")
+
+a

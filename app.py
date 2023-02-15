@@ -8,4 +8,3 @@ def index():
 @app.route("/usuarios")
 def devolver_usuarios():
     return jsonify(usuarios)
-    

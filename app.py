@@ -19,4 +19,6 @@ usuarios=usuarios[0]['usuarios']
 
 print("CARTELERA\n")
 
-a
+ultimas_peliculas_agregadas=[]
+@app.route("/json/usuarios")
+ 

@@ -46,9 +46,54 @@
             "genero" : "Accion" ,
             "sinopsis" : "Tras descubrirse la identidad secreta de Peter Parker como Spider-Man, la vida del joven se vuelve una locura. Peter le pide ayuda al Doctor Strange para recuperar su vida, pero algo sale mal y provoca una fractura en el multiverso." ,
             "enlace" : ""
+         },
+         {
+            "id" : 6,
+            "titulo" : "Cadena perpetua" ,
+            "año" : "1994" ,
+            "director" : "Frank Darabont" ,
+            "genero" : "Drama" ,
+            "sinopsis" : "Andy Dufresne es encarcelado por matar a su esposa y al amante de esta. Tras una dura adaptación, intenta mejorar las condiciones de la prisión y dar esperanza a sus compañeros." ,
+            "enlace" : ""
+         },
+         {
+            "id" : 7,
+            "titulo" : "El padrino" ,
+            "año" : "1972" ,
+            "director" : "Francis Ford Coppola" ,
+            "genero" : "Crimen" ,
+            "sinopsis" : "El envejecido patriarca de una dinastía del crimen organizado en la ciudad de Nueva York de la posguerra transfiere el control de su imperio clandestino a su reacio hijo menor." ,
+            "enlace" : ""
+         },
+         {
+            "id" : 8,
+            "titulo" : "El caballero oscuro" ,
+            "año" : "2008" ,
+            "director" : "Christopher Nolan" ,
+            "genero" : "Accion" ,
+            "sinopsis" : "Cuando la amenaza conocida como el Joker causa estragos y el caos en Gotham City, Batman debe aceptar una de las mayores pruebas psicológicas y físicas para luchar contra la injusticia." ,
+            "enlace" : ""
+         },
+         {
+            "id" : 9,
+            "titulo" : "12 hombres sin piedad" ,
+            "año" : "1957" ,
+            "director" : "Sidney Lumet" ,
+            "genero" : "Crimen" ,
+            "sinopsis" : "Un miembro del jurado trata de evitar un error judicial obligando al resto del jurado a reconsiderar las pruebas." ,
+            "enlace" : ""
          }
-         
-         
+         ,
+         {
+            "id" : 10,
+            "titulo" : "La lista de Schindler" ,
+            "año" : "1993" ,
+            "director" : "Steven Spielberg" ,
+            "genero" : "Drama" ,
+            "sinopsis" : "En la Polonia ocupada por los alemanes durante la Segunda Guerra Mundial, el industrial Oskar Schindler se preocupa por sus trabajadores judíos tras presenciar su persecución por los nazis." ,
+            "enlace" : ""
+         }
+   
     ]
     }
 ]

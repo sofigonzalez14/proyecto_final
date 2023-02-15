@@ -1,6 +1,9 @@
-from flask import Flask
+from flask import Flask, jsonify, request, Response
 app = Flask(__name__)
 @app.route('/')
 def index():
  return '<h1>Hola!<h1>'
- hasdqa
+
+@ aplicación . ruta ( "/usuarios" )
+def  devolver_usuarios ():
+    volver  jsonify ( usuarios )

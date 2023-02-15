@@ -3,5 +3,10 @@ app = Flask(__name__)
 @app.route('/')
 
 @app.route("/usuarios")
+<<<<<<< HEAD
+    def devolver_usuarios():
+    return jsonify("JSON/usuarios")
+=======
 def devolver_usuarios():
-    return jsonify(usuarios)
+    return jsonify('usuarios')
+

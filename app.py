@@ -1,5 +1,13 @@
-from flask import Flask, jsonify, request, Response, JSON
+import json
+from flask import Flask, jsonify, Response, request
+from http import HTTPStatus
+import requests
+
 app = Flask(__name__)
+
+with open("usuarios.json",encoding='utf-8') as usuarios.json:
+    usuarios=json.load(usuarios.json)
+usuarios=usuarios[0]["usuarios"]
 
 @app.route("/usuarios")
 def devolver_usuarios():

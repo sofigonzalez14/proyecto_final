@@ -1,7 +1,10 @@
-from flask import Flask, jsonify, request, Response
+from flask import Flask, jsonify, request, Response, JSON
 app = Flask(__name__)
-@app.route('/')
 
 @app.route("/usuarios")
-    def devolver_usuarios():
-    return jsonify("JSON/usuarios")
+def devolver_usuarios():
+return jsonify("JSON/usuarios")
+
+@app.route("/usuarios")
+def loguearse(usuario, contrasena):
+

@@ -21,4 +21,5 @@ print("CARTELERA\n")
 
 ultimas_peliculas_agregadas=[]
 @app.route("/json/usuarios")
+def home()
  

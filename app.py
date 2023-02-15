@@ -15,7 +15,7 @@ peliculas=peliculas[0]['peliculas']
 
 with open("usuarios.json",encoding='utf-8') as usuarios.json:
     usuarios=json.load(usuarios.json)
-usuarios=usuarios[0]["usuarios"]
+usuarios=usuarios[0]['usuarios']
 
 @app.route("/usuarios")
 def devolver_usuarios():

@@ -7,5 +7,5 @@ app = Flask(__name__)
     return '<h1>Hola!<h1>'
 
 @app.route("/usuarios")
-def devolver_usuarios():
+    def devolver_usuarios():
     return jsonify(usuarios)

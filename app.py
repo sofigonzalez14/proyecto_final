@@ -1,14 +1,6 @@
-from flask import Flask, jsonify, request, Response
-from http import HTTPStatus
-import json
-import urllib
-
+from flask import Flask
 app = Flask(__name__)
-
-if __name__ == "__main__":
-    app.run(debug = True)
-
 @app.route('/')
-def home():
+def index():
  return '<h1>Hola!<h1>'
  hasdqa

@@ -23,7 +23,23 @@
          },
          {
             "id":6,
-            "director":"Quentin Tarantino"
+            "director" : "Frank Darabont"
+         },
+         {
+            "id":7,
+            "director" : "Francis Ford Coppola"
+         },
+         {
+            "id":8,
+            "director" : "Christopher Nolan"
+         },
+         {
+            "id":9,
+            "director" : "Sidney Lumet"
+         },
+         {
+            "id":10,
+            "director" : "Steven Spielberg"
          }
         ]
     }

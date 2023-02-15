@@ -17,10 +17,4 @@ with open("usuarios.json",encoding='utf-8') as usuarios.json:
     usuarios=json.load(usuarios.json)
 usuarios=usuarios[0]["usuarios"]
 
-@app.route("/usuarios")
-def devolver_usuarios():
-return jsonify("JSON/usuarios")
-
-@app.route("/usuarios")
-def loguearse(usuario, contrasena):
-
+print("CARTELERA\n")

@@ -1,0 +1,46 @@
+[
+    {"directores":
+        [
+         {
+            "id":1,
+            "director" : "Justin Lin"
+         },
+         {
+            "id":2,
+            "director" : "Kenny Ortega"
+         },
+         {
+            "id":3,
+            "director" : "James Cameron"
+         },
+         {
+            "id":4,
+            "director" : "Dennis Dugan"
+         },
+         {
+            "id":5,
+            "director" : "Jon Watts"
+         },
+         {
+            "id":6,
+            "director" : "Frank Darabont"
+         },
+         {
+            "id":7,
+            "director" : "Francis Ford Coppola"
+         },
+         {
+            "id":8,
+            "director" : "Christopher Nolan"
+         },
+         {
+            "id":9,
+            "director" : "Sidney Lumet"
+         },
+         {
+            "id":10,
+            "director" : "Steven Spielberg"
+         }
+        ]
+    }
+]

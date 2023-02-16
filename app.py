@@ -50,3 +50,16 @@ def directores_imprimir():
         return jsonify(lista)
     else:
         return Response("No encontrado", status=HTTPStatus.NOT_FOUND)
+
+#--------------- Muestra todos los generos---------------
+
+@app.route("/generos")      
+def generos_imprimir():
+    lista=[]
+    for pelicula in peliculas:
+        if pelicula['genero'] not in lista:
+            lista.append(pelicula['genero'])
+    if len(lista)>0:
+        return jsonify(lista)
+    else:
+        return Response("No encontrado", status=HTTPStatus.NOT_FOUND)

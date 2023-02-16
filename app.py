@@ -69,12 +69,12 @@ def generos_imprimir():
 
 #--------------- Muestra las peliculas que tienen portada---------------
 
-@app.route("/peliculas/enlace")    
+@app.route("/peliculas/imagen")  
 def devolver_peliculas_con_imagen():
     dic={}
     for pelicula in peliculas: 
-        if "link" in pelicula:
-            dic[pelicula['titulo']]=pelicula['link']
+        if "enlace" in pelicula:
+            dic[pelicula['titulo']]=pelicula['enlace']
     if len(dic)>0:
         return jsonify(dic)
     else:

@@ -15,8 +15,8 @@ with open("directores.json",encoding='utf-8') as directores_json:
     directores=json.load(directores_json)
 directores=directores[0]['directores']
 
-with open("peliculas.json",encoding='utf-8') as biblioteca_json:
-    peliculas=json.load(biblioteca_json) 
+with open("peliculas.json",encoding='utf-8') as peliculas_json:
+    peliculas=json.load(peliculas_json) 
 peliculas=peliculas[0]['peliculas']
 
 #--------------- Muestras todos los usuarios ------------------------
@@ -28,7 +28,7 @@ def devolver_usuarios():
     if len(lista)>0:
         return jsonify(lista)
     else:
-        return Response("No encontrado", status=HTTPStatus.NOT_FOUND)
+        return Response("Este usuario no es valido", status=HTTPStatus.NOT_FOUND)
 
 #--------------- Muestra todas las peliculas -------------
 @app.route("/peliculas")  
@@ -39,7 +39,7 @@ def devolver_peliculas():
     if len(mostrar_peliculas)>0:
         return jsonify(mostrar_peliculas)
     else:
-        return Response("No encontrado", status=HTTPStatus.NOT_FOUND)
+        return Response("La pelicula no ha sido encontrada", status=HTTPStatus.NOT_FOUND)
 
 
 #--------------- Muestra todos los directores ---------------
@@ -52,7 +52,7 @@ def directores_imprimir():
     if len(lista)>0:
         return jsonify(lista)
     else:
-        return Response("No encontrado", status=HTTPStatus.NOT_FOUND)
+        return Response("No ha sido encontrado el director", status=HTTPStatus.NOT_FOUND)
 
 #--------------- Muestra todos los generos---------------
 
@@ -65,7 +65,7 @@ def generos_imprimir():
     if len(lista)>0:
         return jsonify(lista)
     else:
-        return Response("No encontrado", status=HTTPStatus.NOT_FOUND)
+        return Response("No ha sido encontrado el genero buscado", status=HTTPStatus.NOT_FOUND)
 
 #--------------- Muestra las peliculas que tienen portada---------------
 
@@ -78,11 +78,11 @@ def devolver_peliculas_con_imagen():
     if len(dic)>0:
         return jsonify(dic)
     else:
-        return Response("No encontrado", status=HTTPStatus.NOT_FOUND)
+        return Response("Esta pelicula no tiene imagen", status=HTTPStatus.NOT_FOUND)
 
 #--------------- Muestra las peliculas de un director en especifico---------------
 
-@app.route("/directores/<id>")      
+@app.route("/directores/<id>")     
 def devolver_peliculas_director(id):
     id_int=int(id)
     lista=[]
@@ -95,7 +95,11 @@ def devolver_peliculas_director(id):
     if len(lista)>0:
         return jsonify(lista)
     else:
-        return Response("No encontrado", status=HTTPStatus.NOT_FOUND)
+        return Response("Este director no ha sido encontrado", status=HTTPStatus.NOT_FOUND)
+
+
+
+
 
 
 

@@ -49,7 +49,4 @@ def directores_imprimir():
         return jsonify(lista)
     else:
         return Response("No encontrado", status=HTTPStatus.NOT_FOUND)
-<<<<<<< HEAD
 
-=======
->>>>>>> 44d7df0d58965788db2363a4367b21e73883ed0b

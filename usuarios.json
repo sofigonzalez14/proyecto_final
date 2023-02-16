@@ -1,6 +1,21 @@
-{
-  "sofigonzalez": "1234",
-  "tomasmerlo": "12345",
-  "mariela": "1234566",
-  "macahuarte": "123456",
-}
+[
+    { "usuarios":
+[
+    {
+        "usuario": "sofigonzalez",
+        "contrasena": "1234"
+
+    },
+    {
+        "usuario": "tomasmerlo",
+        "contrasena": "12345"
+
+    },
+    {
+        "usuario": "macahuarte",
+        "contrasena": "123456"
+
+    }
+]
+    }
+]

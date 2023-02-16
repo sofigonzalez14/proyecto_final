@@ -14,7 +14,7 @@ with open("directores.json",encoding='utf-8') as directores_json:
     directores=json.load(directores_json)
 directores=directores[0]['directores']
 
-with open("biblioteca.json",encoding='utf-8') as biblioteca_json:
+with open("pelicula.json",encoding='utf-8') as biblioteca_json:
     peliculas=json.load(biblioteca_json) 
 peliculas=peliculas[0]['peliculas']
 

@@ -61,3 +61,19 @@ def generos_imprimir():
         return jsonify(lista)
     else:
         return Response("No encontrado", status=HTTPStatus.NOT_FOUND)
+
+#--------------- Muestra las peliculas que tienen portada---------------
+
+@app.route("/peliculas/imagen")    
+def devolver_peliculas_con_imagen():
+    dic={}
+    for pelicula in peliculas: 
+        if "link" in pelicula:
+            dic[pelicula['titulo']]=pelicula['link']
+    if len(dic)>0:
+        return jsonify(dic)
+    else:
+        return Response("No encontrado", status=HTTPStatus.NOT_FOUND)
+
+
+    

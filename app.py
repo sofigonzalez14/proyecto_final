@@ -96,6 +96,23 @@ def devolver_peliculas_director(id):
         return jsonify(lista)
     else:
         return Response("Este director no ha sido encontrado", status=HTTPStatus.NOT_FOUND)
+    
+#--------------- Eliminar pelicula por id---------------
+    
+@app.route("/peliculas/eliminar/<int:id>",methods=["DELETE"])      # Elimina una pelicula por id 
+def eliminar_pelicula(id):
+    id_int=int(id)
+    valor=False
+    for pelicula in peliculas:
+        if pelicula['id']==id_int:
+            peliculas.remove(pelicula)
+            valor=True
+    if valor==True:
+        # with open("biblioteca.json",'w',encoding='utf-8') as biblioteca_json:   # Lo eliminamos del json
+        #     json.dump(peliculas,biblioteca_json)
+        return Response("Eliminado",status=HTTPStatus.OK)
+    else:
+        return Response("No se pudo elimianr este pelicula",status=HTTPStatus.BAD_REQUEST)
 
 
 

@@ -1,13 +1,11 @@
 import json
 from flask import Flask, jsonify, Response, request
 from http import HTTPStatus
+import requests
 import threading
+import os
 
 app = Flask(__name__)
-
-with open("peliculas.json",encoding='utf-8') as peliculas_json:
-    peliculas=json.load(peliculas_json)
-peliculas=peliculas[0]['peliculas']
 
 with open("usuarios.json",encoding='utf-8') as usuarios_json:
     usuarios=json.load(usuarios_json)
@@ -38,6 +36,7 @@ def devolver_peliculas():
         return jsonify(mostrar_peliculas)
     else:
         return Response("No encontrado", status=HTTPStatus.NOT_FOUND)
+
 
 #--------------- Muestra todos los directores ---------------
 @app.route("/directores")   

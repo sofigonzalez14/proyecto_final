@@ -1,7 +1,6 @@
 import json
 from flask import Flask, jsonify, Response, request
 from http import HTTPStatus
-import requests
 import threading
 import os
 

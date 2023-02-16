@@ -15,6 +15,10 @@ with open("directores.json",encoding='utf-8') as directores_json:
     directores=json.load(directores_json)
 directores=directores[0]['directores']
 
+with open("peliculas.json",encoding='utf-8') as biblioteca_json:
+    peliculas=json.load(biblioteca_json) 
+peliculas=peliculas[0]['peliculas']
+
 #--------------- Muestras todos los usuarios ------------------------
 @app.route("/usuarios")     
 def devolver_usuarios():
@@ -65,7 +69,7 @@ def generos_imprimir():
 
 #--------------- Muestra las peliculas que tienen portada---------------
 
-@app.route("/peliculas/imagen")    
+@app.route("/peliculas/enlace")    
 def devolver_peliculas_con_imagen():
     dic={}
     for pelicula in peliculas: 
@@ -76,6 +80,22 @@ def devolver_peliculas_con_imagen():
     else:
         return Response("No encontrado", status=HTTPStatus.NOT_FOUND)
 
+#--------------- Muestra las peliculas de un director en especifico---------------
+
+@app.route("/directores/<id>")      
+def devolver_peliculas_director(id):
+    id_int=int(id)
+    lista=[]
+    for director in directores:
+        if id_int==director['id']:
+            variable=director['director']
+    for pelicula in peliculas:
+        if pelicula['director']==variable:
+            lista.append(pelicula['titulo'])
+    if len(lista)>0:
+        return jsonify(lista)
+    else:
+        return Response("No encontrado", status=HTTPStatus.NOT_FOUND)
 
 
 

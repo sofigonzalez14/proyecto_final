@@ -80,15 +80,6 @@ def devolver_peliculas_con_imagen():
     else:
         return Response("Esta pelicula no tiene imagen", status=HTTPStatus.NOT_FOUND)
 
-#--------------- Muestra las peliculas agregadas---------------
-peliculas_agregadas=[]
-@app.route("/")    
-def home():
-    if len(peliculas_agregadas)>0:
-        return jsonify(peliculas_agregadas)
-    else:
-        return Response("No encontrado", status=HTTPStatus.NOT_FOUND)
-
 #--------------- Muestra las peliculas de un director en especifico---------------
 
 @app.route("/directores/<id>")     

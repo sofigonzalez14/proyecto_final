@@ -50,3 +50,4 @@ def directores_imprimir():
         return jsonify(lista)
     else:
         return Response("No encontrado", status=HTTPStatus.NOT_FOUND)
+        

@@ -16,8 +16,7 @@ peliculas= json.load(data)
 
 data= open("directores.json", encoding="utf-8" )
 directores= json.load(data)
-
-usuario_privado = False
+""" usuario_privado = False
 print("BIENVENIDOS AL CINE")
 print("Estas registrado en esta pagina?")
 
@@ -29,7 +28,7 @@ if lower_input != "si":
 #----------DEVUELVE LAS ULTIMAS 5 PELIS--------------
     for pelicula in peliculas[-5:]:
         print(pelicula, end="\n")
-    print("Gracias por visitarnos!!!")
+    print("Gracias por visitarnos")
 else: # Ingreso del usuario privado
     ingreso_usuario = input( "Ingrese su usuario: ")
     ingreso_contrasenia= input( "Ingrese su contraseña: ")
@@ -38,6 +37,8 @@ else: # Ingreso del usuario privado
             print("Usuario logueado con exito")
             print("Arranca tu experiencia como usuario registrado")
             usuario_privado = True
+
+"""
 
 #--------------- Muestras todos los usuarios ------------------------
 @app.route("/usuarios")     
@@ -117,15 +118,15 @@ def devolver_peliculas_director(id):
         return Response("Este director no ha sido encontrado", status=HTTPStatus.NOT_FOUND)
 
 #------------AGREGAR UNA PELICULA------------------
-def existe_pelicula(titulo):
+"""def existe_pelicula(titulo):
     peliculas = pelicula["peliculas"]
     for pelicula in peliculas:
         if pelicula['titulo'].lower() == titulo.lower():
             return pelicula
     return False
-
+"""
 #---------------------------------------------------
-@app.route("/agregar/pelicula", methods=['POST'])
+"""@app.route("/agregar/pelicula", methods=['POST'])
 def alta_pelicula():
     if usuario_privado == True:
         data = request.get_json()
@@ -154,4 +155,4 @@ def alta_pelicula():
         print("Se cargo una pelicula nueva")
         return jsonify(pelicula_nueva), HTTPStatus.OK
     else:
-        return jsonify("Usted no es un usuario registrado"), HTTPStatus.BAD_REQUEST
+        return jsonify("Usted no es un usuario registrado"), HTTPStatus.BAD_REQUEST"""

@@ -152,6 +152,21 @@ def alta_pelicula():
         return jsonify(pelicula_nueva), HTTPStatus.OK
     else:
         return jsonify("Usted no es un usuario registrado"), HTTPStatus.BAD_REQUEST
+    
+     #------------------ Elimina una pelicula por id ------------------------------
+    
+    @app.route("/peliculas/eliminar/<int:id>",methods=["DELETE"])     
+def eliminar_pelicula(id):
+    id_int=int(id)
+    valor=False
+    for pelicula in peliculas:
+        if pelicula['id']==id_int:
+            peliculas.remove(pelicula)
+            valor=True
+    if valor==True:
+        return Response("Eliminado",status=HTTPStatus.OK)
+    else:  
+        return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
 
 
 

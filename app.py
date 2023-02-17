@@ -1,25 +1,43 @@
 import json
-import funciones as fc
 from flask import Flask, jsonify, Response, request
 from http import HTTPStatus
+import webbrowser
 import threading
 import os
 
 app = Flask(__name__)
 
 
-with open("usuarios.json",encoding='utf-8') as usuarios_json:
-    usuarios=json.load(usuarios_json)
-usuarios=usuarios[0]['usuarios']
+data = open("usuarios.json", encoding="utf-8")
+usuarios= json.load(data)
 
-with open("directores.json",encoding='utf-8') as directores_json:
-    directores=json.load(directores_json)
-directores=directores[0]['directores']
+data= open("peliculas.json", encoding="utf-8" )
+peliculas= json.load(data)
 
-with open("peliculas.json",encoding='utf-8') as peliculas_json:
-    peliculas=json.load(peliculas_json) 
-peliculas=peliculas[0]['peliculas']
+data= open("directores.json", encoding="utf-8" )
+directores= json.load(data)
 
+usuario_privado = False
+print("BIENVENIDOS AL CINE")
+print("Estas registrado en esta pagina?")
+
+validar_registro = input("Ingresa Si/No: ")
+lower_input = validar_registro.lower()
+if lower_input != "si":
+    print ("Como usuario publico solo podes ver los titulos de las ultimas 5 peliculas")
+
+#----------DEVUELVE LAS ULTIMAS 5 PELIS--------------
+    for pelicula in peliculas[-5:]:
+        print(pelicula, end="\n")
+    print("Gracias por visitarnos!!!")
+else: # Ingreso del usuario privado
+    ingreso_usuario = input( "Ingrese su usuario: ")
+    ingreso_contrasenia= input( "Ingrese su contraseña: ")
+    for usuario in usuarios:
+        if usuario == ingreso_usuario and usuario["contrasenia"] == ingreso_contrasenia:
+            print("Usuario logueado con exito")
+            print("Arranca tu experiencia como usuario registrado")
+            usuario_privado = True
 
 #--------------- Muestras todos los usuarios ------------------------
 @app.route("/usuarios")     
@@ -83,51 +101,3 @@ def devolver_peliculas_con_imagen():
         return Response("Esta pelicula no tiene imagen", status=HTTPStatus.NOT_FOUND)
 
 #--------------- Muestra las peliculas de un director en especifico---------------
-
-@app.route("/directores/<id>")     
-def devolver_peliculas_director(id):
-    id_int=int(id)
-    lista=[]
-    for director in directores:
-        if id_int==director['id']:
-            variable=director['director']
-    for pelicula in peliculas:
-        if pelicula['director']==variable:
-            lista.append(pelicula['titulo'])
-    if len(lista)>0:
-        return jsonify(lista)
-    else:
-        return Response("Este director no ha sido encontrado", status=HTTPStatus.NOT_FOUND)
-    
-#--------------- Eliminar pelicula por id---------------
-    
-@app.route("/peliculas/eliminar/<int:id>",methods=["DELETE"])      # Elimina una pelicula por id 
-def eliminar_pelicula(id):
-    id_int=int(id)
-    valor=False
-    for pelicula in peliculas:
-        if pelicula['id']==id_int:
-            peliculas.remove(pelicula)
-            valor=True
-    if valor==True:
-        # with open("biblioteca.json",'w',encoding='utf-8') as biblioteca_json:   # Lo eliminamos del json
-        #     json.dump(peliculas,biblioteca_json)
-        return Response("Eliminado",status=HTTPStatus.OK)
-    else:
-        return Response("No se pudo elimianr este pelicula",status=HTTPStatus.BAD_REQUEST)
-    
-#ABM 
-@app.route("/Peliculas/<id>", methods=['POST'])
-def createComentarios(id):
-    #Obteneniendo JSONs
-    comentarios = fc.obtenerComentarios()
-    peliculas = fc.obtenerPeliculas()
-    id = fc.nuevoIdComentario()
-
-    peliculaNueva = request.get_json()
-    peliculaNueva["id"] = id
-    peliculas.append(peliculaNueva)
-
-for pelicula in peliculas:
-    if pelicula['id'] == id:
-        pelicula['idComentarios'].append(id)

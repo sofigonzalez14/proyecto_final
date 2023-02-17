@@ -1,99 +1,99 @@
 [
-    {
-        "peliculas":
-    [
-        {
-            "id" : 1 ,
-            "titulo" : "Rapidos y Furiosos 2 " ,
-            "año" : "2009" ,
-            "director" : "Justin Lin" ,
-            "genero" : "Accion" ,
-            "sinopsis" : " El exconvicto Dominic Toretto se une a su viejo adversario, Brian O'Conner, que ahora trabaja para el FBI en Los Ángeles, con el fin de infiltrarse en una organización criminal que se dedica a introducir heroína en la ciudad.",
-            "enlace" : ""
-         },
-         {
-            "id" : 2 ,
-            "titulo" : "High School Musical 2" ,
-            "año" : "2007" ,
-            "director" : "Kenny Ortega" ,
-            "genero" : "Musical" ,
-            "sinopsis" : "Durante las vacaciones de verano, Troy obtiene un trabajo en el complejo de Sharpay, pero él no conoce las verdaderas intenciones de la muchacha " ,
-            "enlace" : ""
-         },
-         {
-            "id" : 3,
-            "titulo" : "Titanic" ,
-            "año" : "1997" ,
-            "director" : "James Cameron" ,
-            "genero" : "Romance" ,
-            "sinopsis" : "Una joven de la alta sociedad abandona a su arrogante pretendiente por un artista humilde en el trasatlántico que se hundió durante su viaje inaugural." ,
-            "enlace" : ""
-         },
-         {
-            "id" : 4,
-            "titulo" : "Una esposa de mentira" ,
-            "año" : "2011" ,
-            "director" : "Dennis Dugan" ,
-            "genero" : "Comedia" ,
-            "sinopsis" : "El cirujano Danny decide contratar a su ayudante Katherine, una madre soltera con hijos, para que finjan ser su familia. Su intención es demostrarle a Palmer que su amor por ella es tan grande que está a punto de divorciarse de su mujer." ,
-            "enlace" : ""
-         },
-         {
-            "id" : 5,
-            "titulo" : "Spider-Man: sin camino a casa" ,
-            "año" : "2021" ,
-            "director" : "Jon Watts" ,
-            "genero" : "Accion" ,
-            "sinopsis" : "Tras descubrirse la identidad secreta de Peter Parker como Spider-Man, la vida del joven se vuelve una locura. Peter le pide ayuda al Doctor Strange para recuperar su vida, pero algo sale mal y provoca una fractura en el multiverso." ,
-            "enlace" : ""
-         },
-         {
-            "id" : 6,
-            "titulo" : "Cadena perpetua" ,
-            "año" : "1994" ,
-            "director" : "Frank Darabont" ,
-            "genero" : "Drama" ,
-            "sinopsis" : "Andy Dufresne es encarcelado por matar a su esposa y al amante de esta. Tras una dura adaptación, intenta mejorar las condiciones de la prisión y dar esperanza a sus compañeros." ,
-            "enlace" : ""
-         },
-         {
-            "id" : 7,
-            "titulo" : "El padrino" ,
-            "año" : "1972" ,
-            "director" : "Francis Ford Coppola" ,
-            "genero" : "Crimen" ,
-            "sinopsis" : "El envejecido patriarca de una dinastía del crimen organizado en la ciudad de Nueva York de la posguerra transfiere el control de su imperio clandestino a su reacio hijo menor." ,
-            "enlace" : ""
-         },
-         {
-            "id" : 8,
-            "titulo" : "El caballero oscuro" ,
-            "año" : "2008" ,
-            "director" : "Christopher Nolan" ,
-            "genero" : "Accion" ,
-            "sinopsis" : "Cuando la amenaza conocida como el Joker causa estragos y el caos en Gotham City, Batman debe aceptar una de las mayores pruebas psicológicas y físicas para luchar contra la injusticia." ,
-            "enlace" : ""
-         },
-         {
-            "id" : 9,
-            "titulo" : "12 hombres sin piedad" ,
-            "año" : "1957" ,
-            "director" : "Sidney Lumet" ,
-            "genero" : "Crimen" ,
-            "sinopsis" : "Un miembro del jurado trata de evitar un error judicial obligando al resto del jurado a reconsiderar las pruebas." ,
-            "enlace" : ""
-         }
-         ,
-         {
-            "id" : 10,
-            "titulo" : "La lista de Schindler" ,
-            "año" : "1993" ,
-            "director" : "Steven Spielberg" ,
-            "genero" : "Drama" ,
-            "sinopsis" : "En la Polonia ocupada por los alemanes durante la Segunda Guerra Mundial, el industrial Oskar Schindler se preocupa por sus trabajadores judíos tras presenciar su persecución por los nazis." ,
-            "enlace" : ""
-         }
-   
-    ]
-    }
+  {
+      "peliculas":
+  [
+      {
+          "id" : 1 ,
+          "titulo" : "Rapidos y Furiosos 2 " ,
+          "año" : "2009" ,
+          "director" : "Justin Lin" ,
+          "genero" : "Accion" ,
+          "sinopsis" : " El exconvicto Dominic Toretto se une a su viejo adversario, Brian O'Conner, que ahora trabaja para el FBI en Los Ángeles, con el fin de infiltrarse en una organización criminal que se dedica a introducir heroína en la ciudad.",
+          "enlace" : "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/2fast2furious-logo.svg/1200px-2fast2furious-logo.svg.png"
+       },
+       {
+          "id" : 2 ,
+          "titulo" : "High School Musical 2" ,
+          "año" : "2007" ,
+          "director" : "Kenny Ortega" ,
+          "genero" : "Musical" ,
+          "sinopsis" : "Durante las vacaciones de verano, Troy obtiene un trabajo en el complejo de Sharpay, pero él no conoce las verdaderas intenciones de la muchacha " ,
+          "enlace" : "https://static.wikia.nocookie.net/doblaje/images/e/e2/HSM2poster.jpg/revision/latest?cb=20211019174851&path-prefix=es"
+       },
+       {
+          "id" : 3,
+          "titulo" : "Titanic" ,
+          "año" : "1997" ,
+          "director" : "James Cameron" ,
+          "genero" : "Romance" ,
+          "sinopsis" : "Una joven de la alta sociedad abandona a su arrogante pretendiente por un artista humilde en el trasatlántico que se hundió durante su viaje inaugural." ,
+          "enlace" : "https://pics.filmaffinity.com/Titanic-321994924-mmed.jpg"
+       },
+       {
+          "id" : 4,
+          "titulo" : "Una esposa de mentira" ,
+          "año" : "2011" ,
+          "director" : "Dennis Dugan" ,
+          "genero" : "Comedia" ,
+          "sinopsis" : "El cirujano Danny decide contratar a su ayudante Katherine, una madre soltera con hijos, para que finjan ser su familia. Su intención es demostrarle a Palmer que su amor por ella es tan grande que está a punto de divorciarse de su mujer." ,
+          "enlace" : "https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/54133C0EF44EFFF93EBA5847D019FB976B6C6ECC5CE40BB2B7BAB590EA625720/scale?width=1200&aspectRatio=1.78&format=jpeg"
+       },
+       {
+          "id" : 5,
+          "titulo" : "Spider-Man: sin camino a casa" ,
+          "año" : "2021" ,
+          "director" : "Jon Watts" ,
+          "genero" : "Accion" ,
+          "sinopsis" : "Tras descubrirse la identidad secreta de Peter Parker como Spider-Man, la vida del joven se vuelve una locura. Peter le pide ayuda al Doctor Strange para recuperar su vida, pero algo sale mal y provoca una fractura en el multiverso." ,
+          "enlace" : "https://play-lh.googleusercontent.com/i0DAXWIGliyfSy6FWsbt7N_i1530o_rtkM220WgVGpRlI4OeOuIz-kL3JmZWFa3u7bjsaAfOdfUUMZSE1A"
+       },
+       {
+          "id" : 6,
+          "titulo" : "Cadena perpetua" ,
+          "año" : "1994" ,
+          "director" : "Frank Darabont" ,
+          "genero" : "Drama" ,
+          "sinopsis" : "Andy Dufresne es encarcelado por matar a su esposa y al amante de esta. Tras una dura adaptación, intenta mejorar las condiciones de la prisión y dar esperanza a sus compañeros." ,
+          "enlace" : "https://pics.filmaffinity.com/Cadena_perpetua-211849172-large.jpg"
+       },
+       {
+          "id" : 7,
+          "titulo" : "El padrino" ,
+          "año" : "1972" ,
+          "director" : "Francis Ford Coppola" ,
+          "genero" : "Crimen" ,
+          "sinopsis" : "El envejecido patriarca de una dinastía del crimen organizado en la ciudad de Nueva York de la posguerra transfiere el control de su imperio clandestino a su reacio hijo menor." ,
+          "enlace" : "https://ca-times.brightspotcdn.com/dims4/default/2314d53/2147483647/strip/true/crop/2093x3000+0+0/resize/1200x1720!/quality/80/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F47%2F95%2Fcbf137037b833a53a724fde3f53e%2Fcfdj8emgq7504ddbn1ibedbziqes-ufxmz-ypi0gordml8oigvx-qxnfyjdexxje48b9jsnhzr2hbbtg9-5bm2ewo-sfvcb9svtpufonjqohy-raixysjlgk7fagt3voiify9grgz0pkj-sysmn1pfblqffyiedjz8nszvhrheowg2imuyrmeklodsplgwx3wmznmclm-gx-cvc7m0lf7h7crd5meu1oztvsd9po-e1pldrzmjwobcwk9h7avlf0y4ew56xkel9filhfyidkf9rpndq4ic7-snlvnin85poimejwzyp6rq-q8qsqvmlvl2xaq3rsy-7axvtxqcpqinvjubaglw5risa6bqkfrpqowvdt29rhgoxnbsbi3dnwzldfjuimuizsg2hody3cu-y1kgk"
+       },
+       {
+          "id" : 8,
+          "titulo" : "El caballero oscuro" ,
+          "año" : "2008" ,
+          "director" : "Christopher Nolan" ,
+          "genero" : "Accion" ,
+          "sinopsis" : "Cuando la amenaza conocida como el Joker causa estragos y el caos en Gotham City, Batman debe aceptar una de las mayores pruebas psicológicas y físicas para luchar contra la injusticia." ,
+          "enlace" : "https://www.lavanguardia.com/peliculas-series/images/movie/poster/2008/7/w1280/8QDQExnfNFOtabLDKqfDQuHDsIg.jpg"
+       },
+       {
+          "id" : 9,
+          "titulo" : "12 hombres sin piedad" ,
+          "año" : "1957" ,
+          "director" : "Sidney Lumet" ,
+          "genero" : "Crimen" ,
+          "sinopsis" : "Un miembro del jurado trata de evitar un error judicial obligando al resto del jurado a reconsiderar las pruebas." ,
+          "enlace" : "https://pics.filmaffinity.com/Doce_hombres_sin_piedad-586969758-large.jpg"
+       }
+       ,
+       {
+          "id" : 10,
+          "titulo" : "La lista de Schindler" ,
+          "año" : "1993" ,
+          "director" : "Steven Spielberg" ,
+          "genero" : "Drama" ,
+          "sinopsis" : "En la Polonia ocupada por los alemanes durante la Segunda Guerra Mundial, el industrial Oskar Schindler se preocupa por sus trabajadores judíos tras presenciar su persecución por los nazis." ,
+          "enlace" : "https://i.ytimg.com/vi/7q-ETFeMxwI/mqdefault.jpg"
+       }
+ 
+  ]
+  }
 ]

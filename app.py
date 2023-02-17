@@ -1,4 +1,5 @@
 import json
+import funciones as fc
 from flask import Flask, jsonify, Response, request
 from http import HTTPStatus
 import threading

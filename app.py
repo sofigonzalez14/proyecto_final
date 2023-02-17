@@ -131,8 +131,7 @@ def existe_pelicula(titulo):
 def alta_pelicula():
     if usuario_privado == True:
         data = request.get_json()
-        # validar data que viene del pedido
-        # data.keys() >= {"usuario", "titulo"} retorna true si hay coincidencia
+
         campos = {"titulo", "genero","director", "id", "sinopsis", "enlace"}
         if data.keys() < campos:
             return jsonify("Faltan campos en el pedido"), HTTPStatus.BAD_REQUEST
@@ -153,4 +152,6 @@ def alta_pelicula():
         return jsonify(pelicula_nueva), HTTPStatus.OK
     else:
         return jsonify("Usted no es un usuario registrado"), HTTPStatus.BAD_REQUEST
+
+
 

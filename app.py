@@ -153,3 +153,4 @@ def alta_pelicula():
         return jsonify(pelicula_nueva), HTTPStatus.OK
     else:
         return jsonify("Usted no es un usuario registrado"), HTTPStatus.BAD_REQUEST
+

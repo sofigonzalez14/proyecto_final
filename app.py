@@ -155,7 +155,7 @@ def alta_pelicula():
     
 #------------------ Elimina una pelicula por id ------------------------------
     
-    @app.route("/peliculas/eliminar/<int:id>",methods=["DELETE"])     
+    @app.route("/peliculas/eliminar/<id>",methods=["DELETE"])     
     def eliminar_pelicula(id):
         id_int=int(id)
     valor=False
@@ -171,7 +171,7 @@ def alta_pelicula():
         return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
 
 #--------- Modifica una pelicula----------------------------
-@app.route("/peliculas/<int:id>", methods=['PUT'])
+@app.route("/peliculas/<id>", methods=['PUT'])
 def modificar_pelicula(id):
     if usuario_privado == True:
         encontrado = False
@@ -197,5 +197,6 @@ def modificar_pelicula(id):
             return jsonify("No se actualizaron los datos de la película"), HTTPStatus.NOT_FOUND
     else:
         return jsonify("Usted no es un usuario registrado"), HTTPStatus.BAD_REQUEST
+
 
 

@@ -1,22 +1,25 @@
 import json
 from flask import Flask, jsonify, Response, request
 from http import HTTPStatus
-import webbrowser
 import threading
 import os
 
 app = Flask(__name__)
 
 
-data = open("usuarios.json", encoding="utf-8")
-usuarios= json.load(data)
+with open("peliculas.json",encoding='utf-8') as peliculas_json:
+    peliculas=json.load(peliculas_json) 
+peliculas=peliculas[0]['peliculas']
 
-data= open("peliculas.json", encoding="utf-8" )
-peliculas= json.load(data)
+with open("usuarios.json",encoding='utf-8') as usuarios_json:
+    usuarios=json.load(usuarios_json)
+usuarios=usuarios[0]['usuarios']
 
-data= open("directores.json", encoding="utf-8" )
-directores= json.load(data)
-""" usuario_privado = False
+with open("directores.json",encoding='utf-8') as directores_json:
+    directores=json.load(directores_json)
+directores=directores[0]['directores']
+
+usuario_privado = False
 print("BIENVENIDOS AL CINE")
 print("Estas registrado en esta pagina?")
 
@@ -38,8 +41,6 @@ else: # Ingreso del usuario privado
             print("Arranca tu experiencia como usuario registrado")
             usuario_privado = True
 
-"""
-
 #--------------- Muestras todos los usuarios ------------------------
 @app.route("/usuarios")     
 def devolver_usuarios():
@@ -56,7 +57,7 @@ def devolver_usuarios():
 def devolver_peliculas():
     mostrar_peliculas=[]
     for pelicula in peliculas:
-        mostrar_peliculas.append(pelicula['titulo'])
+        mostrar_peliculas.append(pelicula["titulo"])
     if len(mostrar_peliculas)>0:
         return jsonify(mostrar_peliculas)
     else:
@@ -118,15 +119,15 @@ def devolver_peliculas_director(id):
         return Response("Este director no ha sido encontrado", status=HTTPStatus.NOT_FOUND)
 
 #------------AGREGAR UNA PELICULA------------------
-"""def existe_pelicula(titulo):
+def existe_pelicula(titulo):
     peliculas = pelicula["peliculas"]
     for pelicula in peliculas:
         if pelicula['titulo'].lower() == titulo.lower():
             return pelicula
     return False
-"""
+
 #---------------------------------------------------
-"""@app.route("/agregar/pelicula", methods=['POST'])
+@app.route("/agregar/pelicula", methods=['POST'])
 def alta_pelicula():
     if usuario_privado == True:
         data = request.get_json()
@@ -155,4 +156,4 @@ def alta_pelicula():
         print("Se cargo una pelicula nueva")
         return jsonify(pelicula_nueva), HTTPStatus.OK
     else:
-        return jsonify("Usted no es un usuario registrado"), HTTPStatus.BAD_REQUEST"""
+        return jsonify("Usted no es un usuario registrado"), HTTPStatus.BAD_REQUEST

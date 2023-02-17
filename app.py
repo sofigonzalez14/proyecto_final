@@ -164,6 +164,8 @@ def eliminar_pelicula(id):
             peliculas.remove(pelicula)
             valor=True
     if valor==True:
+        # with open("biblioteca.json",'w',encoding='utf-8') as biblioteca_json:   # Lo agregamos al json
+        #     json.dump(peliculas,biblioteca_json)
         return Response("Eliminado",status=HTTPStatus.OK)
     else:  
         return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)

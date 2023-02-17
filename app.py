@@ -283,10 +283,19 @@ def eliminar_pelicula(id):
         return Response("Eliminado",status=HTTPStatus.OK)
     else:
         return Response("No se pudo elimianr este pelicula",status=HTTPStatus.BAD_REQUEST)
-
-
-
-
-
-
     
+#ABM 
+@app.route("/comentario/create/idPelicula/<idPelicula>", methods=['POST'])
+def createComentarios(idPelicula):
+    #Obteneniendo JSONs
+    comentarios = fc.obtenerComentarios()
+    peliculas = fc.obtenerPeliculas()
+    id = fc.nuevoIdComentario()
+
+    comentarioNuevo = request.get_json()
+    comentarioNuevo["id"] = id
+    comentarios.append(comentarioNuevo)
+
+for pelicula in peliculas:
+    if pelicula['id'] == idPelicula:
+        pelicula['idComentarios'].append(id)

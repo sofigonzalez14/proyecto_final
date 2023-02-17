@@ -101,3 +101,17 @@ def devolver_peliculas_con_imagen():
         return Response("Esta pelicula no tiene imagen", status=HTTPStatus.NOT_FOUND)
 
 #--------------- Muestra las peliculas de un director en especifico---------------
+@app.route("/directores/<id>")     
+def devolver_peliculas_director(id):
+    id_int=int(id)
+    lista=[]
+    for director in directores:
+        if id_int==director['id']:
+            variable=director['director']
+    for pelicula in peliculas:
+        if pelicula['director']==variable:
+            lista.append(pelicula['titulo'])
+    if len(lista)>0:
+        return jsonify(lista)
+    else:
+        return Response("Este director no ha sido encontrado", status=HTTPStatus.NOT_FOUND)

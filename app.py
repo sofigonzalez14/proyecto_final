@@ -133,7 +133,7 @@ def alta_pelicula():
         data = request.get_json()
         # validar data que viene del pedido
         # data.keys() >= {"usuario", "titulo"} retorna true si hay coincidencia
-        campos = {"titulo", "genero","director", "id", "sinopsis", "enlace", "comentario"}
+        campos = {"titulo", "genero","director", "id", "sinopsis", "enlace"}
         if data.keys() < campos:
             return jsonify("Faltan campos en el pedido"), HTTPStatus.BAD_REQUEST
 
@@ -143,14 +143,10 @@ def alta_pelicula():
         pelicula_nueva = {
             "id": id,
             "titulo": data["titulo"],
-            "anio": data["anio"],
+            "año": data["año"],
             "genero": data["genero"],
-            "genero_sub": data["genero_sub"],
-            "id_director": data["id_director"],
             "sinopsis": data["sinopsis"],
-            "imagen": data["imagen"],
-            "trailer": data["trailer"],
-            "subidapor": data["subidapor"],
+            "enlace": data["enlace"],
         }
         peliculas["peliculas"].append(pelicula_nueva)
         print("Se cargo una pelicula nueva")

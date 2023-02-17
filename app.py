@@ -153,11 +153,11 @@ def alta_pelicula():
     else:
         return jsonify("Usted no es un usuario registrado"), HTTPStatus.BAD_REQUEST
     
-     #------------------ Elimina una pelicula por id ------------------------------
+#------------------ Elimina una pelicula por id ------------------------------
     
     @app.route("/peliculas/eliminar/<int:id>",methods=["DELETE"])     
-def eliminar_pelicula(id):
-    id_int=int(id)
+    def eliminar_pelicula(id):
+        id_int=int(id)
     valor=False
     for pelicula in peliculas:
         if pelicula['id']==id_int:
@@ -168,5 +168,32 @@ def eliminar_pelicula(id):
     else:  
         return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
 
+#--------- Modifica una pelicula----------------------------
+@app.route("/peliculas/<int:id>", methods=['PUT'])
+def modificar_pelicula(id):
+    if usuario_privado == True:
+        encontrado = False
+        data = request.get_json()
+        for pelicula in peliculas["peliculas"]:
+            if pelicula["id"] == int(id):
+                encontrado = True
+                id_pelicula = pelicula["id"]
+                
+                peliculas["id"]= int(id)                                           
+                peliculas["titulo"]= data["titulo"]
+                peliculas["año"]= int(data["año"])
+                peliculas["genero"]= data["genero"]
+                peliculas["director"]= int(data["director"])
+                peliculas["sinopsis"]= data["sinopsis"]
+                peliculas["enlace"]=data["enlace"]
+                
+        if encontrado == True:
+            print("Se modificaron datos de la pelicula")
+            return jsonify("Se actualizaron los datos de la pelicula"), HTTPStatus.OK
+        else:
+            print("No se modificaron datos")
+            return jsonify("No se actualizaron los datos de la película"), HTTPStatus.NOT_FOUND
+    else:
+        return jsonify("Usted no es un usuario registrado"), HTTPStatus.BAD_REQUEST
 
 

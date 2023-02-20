@@ -211,7 +211,6 @@ def menu():
         print("           MENU             ")
         print("----------------------------")
         print("1: Mostrar todas las peliculas")
-        print("2: Mostrar pelicula especifica")
         print("3: Mostrar ultimas peliculas agregadas")
         print("4: Mostrar peliculas con imagenes")
         print("5: Mostrar directores")
@@ -231,12 +230,6 @@ def menu():
             for i in r:
                 print(i)
 
-        elif (opcion==2):   
-            id=input("Ingresar id de la pelicula: ")
-            r=(request.get("http://127.0.0.1:5000/peliculas/"+id))
-            r=r.json()
-            for key,value in r.items():
-                print(key," : ",value)
 
         elif (opcion==3):
             r=(request.get("http://127.0.0.1:5000"))
@@ -301,7 +294,7 @@ def menu():
                     "director":director,
                     "genero":genero,
                     "sinopsis":sinopsis,
-                    "link":enlace
+                    "enlace":enlace
                 }
                 r=(request.post("http://127.0.0.1:5000/peliculas/publicar",json=j))
                 print(r.content)
@@ -356,7 +349,7 @@ def menu():
                         "director":director,
                         "genero":genero,
                         "sinopsis":sinopsis,
-                        "link":enlace
+                        "enlace":enlace
                     }
                     r=(request.put("http://127.0.0.1:5000/peliculas/actualizar",json=j))
                     print(r.content)

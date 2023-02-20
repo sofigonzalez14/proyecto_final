@@ -18,28 +18,6 @@ with open("directores.json",encoding='utf-8') as directores_json:
     directores=json.load(directores_json)
 directores=directores[0]['directores']
 
-usuario_privado = False
-print("BIENVENIDOS AL CINE")
-print("Estas registrado en esta pagina?")
-
-validar_registro = input("Ingresa Si/No: ")
-lower_input = validar_registro.lower()
-if lower_input != "si":
-    print ("Como usuario publico solo podes ver los titulos de las ultimas 5 peliculas")
-
-#----------DEVUELVE LAS ULTIMAS 5 PELIS--------------
-    for pelicula in peliculas[-5:]:
-        print(pelicula, end="\n")
-    print("Gracias por visitarnos")
-else: # Ingreso del usuario privado
-    ingreso_usuario = input( "Ingrese su usuario: ")
-    ingreso_contrasenia= input( "Ingrese su contraseña: ")
-    for usuario in usuarios:
-        if usuario == ingreso_usuario and usuario["contrasenia"] == ingreso_contrasenia:
-            print("Usuario logueado con exito")
-            print("Arranca tu experiencia como usuario registrado")
-            usuario_privado = True
-
 #--------------- Muestras todos los usuarios ------------------------
 @app.route("/usuarios")     
 def devolver_usuarios():
@@ -159,14 +137,6 @@ def comprar_entrada():
         # with open("directores.json",'w',encoding='utf-8') as directores_json:
         #     json.dump(directores,directores_json)
 
-    if len(ultimas_peliculas_agregadas)<10:                 # Agrega las ultimas 10 peliculas a la pagina home
-        ultimas_peliculas_agregadas.append(datos['titulo'])     
-    else:
-        for i in range(9,-1,-1):
-            if i != 0:
-                ultimas_peliculas_agregadas[i]=ultimas_peliculas_agregadas[i-1]
-            ultimas_peliculas_agregadas[0]=datos['titulo'] 
-
     if (datos['id'] not in peliculas):      # Post
         peliculas.append(datos)
         # with open("biblioteca.json",'w',encoding='utf-8') as biblioteca_json:   # Lo agregamos al json
@@ -210,14 +180,36 @@ def modificar_pelicula():
     else:
         return Response("ID no encontrado",status=HTTPStatus.NOT_FOUND)
 
+usuario_privado = False
+print("BIENVENIDOS AL CINE")
+print("Estas registrado en esta pagina?")
 
-usuario_privado=False
+validar_registro = input("Ingresa Si/No: ")
+lower_input = validar_registro.lower()
+if lower_input != "si":
+    print ("Como usuario publico solo podes ver los titulos de las ultimas 5 peliculas")
+
+#----------DEVUELVE LAS ULTIMAS 5 PELIS--------------
+    for pelicula in peliculas[-5:]:
+        print(pelicula, end="\n")
+    print("Gracias por visitarnos")
+else: # Ingreso del usuario privado
+    ingreso_usuario = input( "Ingrese su usuario: ")
+    ingreso_contrasenia= input( "Ingrese su contraseña: ")
+    for usuario in usuarios:
+        if usuario == ingreso_usuario and usuario["contrasenia"] == ingreso_contrasenia:
+            print("Usuario logueado con exito")
+            print("Arranca tu experiencia como usuario registrado")
+            usuario_privado = True
+
+
+usuario_privado=True
+
 def menu():
     print("")
     while True:
         print("           MENU             ")
         print("----------------------------")
-        print("0: Iniciar/cerrar sesion")
         print("1: Mostrar todas las peliculas")
         print("2: Mostrar pelicula especifica")
         print("3: Mostrar ultimas peliculas agregadas")
@@ -233,68 +225,52 @@ def menu():
         opcion=int(input("Ingresar opcion: "))
         print("")
 
-        if (opcion==0):
-            global usuario_privado
-            if(usuario_privado==False):
-                user=input("Ingresar usuario: ")
-                password=input('Ingresar contraseña: ')
-                for usuario in usuarios:
-                    if(user in usuario['usuario'] and password in usuario['contrasenia']):
-                        usuario_privado=True
-                if (usuario_privado==True):
-                    print("Inicio de sesion exitoso")
-                else:
-                    print("Error al iniciar sesion")
-            else:
-                usuario_privado=False
-                print("Sesion cerrada")
-
-        elif (opcion==1):
-            r=(requests.get("http://127.0.0.1:5000/peliculas"))
+        if (opcion==1):
+            r=(request.get("http://127.0.0.1:5000/peliculas"))
             r=r.json()
             for i in r:
                 print(i)
 
         elif (opcion==2):   
             id=input("Ingresar id de la pelicula: ")
-            r=(requests.get("http://127.0.0.1:5000/peliculas/"+id))
+            r=(request.get("http://127.0.0.1:5000/peliculas/"+id))
             r=r.json()
             for key,value in r.items():
                 print(key," : ",value)
 
         elif (opcion==3):
-            r=(requests.get("http://127.0.0.1:5000"))
+            r=(request.get("http://127.0.0.1:5000"))
             r=r.json()
             for i in r:
                 print(i)
 
         elif (opcion==4):
-            r=(requests.get("http://127.0.0.1:5000/peliculas/imagen"))
+            r=(request.get("http://127.0.0.1:5000/peliculas/imagen"))
             r=r.json()
             for key,value in r.items():
                 print(key," : ",value)
 
         elif (opcion==5):
-            r=(requests.get("http://127.0.0.1:5000/directores"))
+            r=(request.get("http://127.0.0.1:5000/directores"))
             r=r.json()
             for i in r:
                 print(i)
 
         elif (opcion==6): 
             id=input("Ingresar id del director: ")
-            r=(requests.get("http://127.0.0.1:5000/directores/"+id))
+            r=(request.get("http://127.0.0.1:5000/directores/"+id))
             r=r.json()
             for i in r:
                 print(i)
 
         elif (opcion==7):
-            r=(requests.get("http://127.0.0.1:5000/usuarios"))
+            r=(request.get("http://127.0.0.1:5000/usuarios"))
             r=r.json()
             for i in r:
                 print(i)
 
         elif (opcion==8):
-            r=(requests.get("http://127.0.0.1:5000/generos"))
+            r=(request.get("http://127.0.0.1:5000/generos"))
             r=r.json()
             for i in r:
                 print(i)
@@ -304,7 +280,7 @@ def menu():
                 print("Permiso denegado, inicie sesion.")
             else:
                 id=input("Ingresar id de la pelicula: ")
-                r=(requests.delete("http://127.0.0.1:5000/peliculas/eliminar/"+id))
+                r=(request.delete("http://127.0.0.1:5000/peliculas/eliminar/"+id))
                 print(r.content)
 
         elif (opcion==10):
@@ -313,21 +289,21 @@ def menu():
             else:
                 id=int(input("Ingresar id: "))
                 titulo=input("Titulo: ")
-                anio=input("Año: ")
+                año=input("Año: ")
                 director=input("Director: ")
                 genero=input("Genero: ")
                 sinopsis=input("Sinopsis: ")
-                link=input("Link imagen/portada: ")
+                enlace=input("Link imagen/portada: ")
                 j={
                     "id":id,
                     "titulo":titulo,
-                    "anio":anio,
+                    "año":año,
                     "director":director,
                     "genero":genero,
                     "sinopsis":sinopsis,
-                    "link":link
+                    "link":enlace
                 }
-                r=(requests.post("http://127.0.0.1:5000/peliculas/publicar",json=j))
+                r=(request.post("http://127.0.0.1:5000/peliculas/publicar",json=j))
                 print(r.content)
 
         elif (opcion==11):
@@ -350,9 +326,9 @@ def menu():
                         titulo=dic_pelicula['titulo']
                     respuesta=input("¿Modificar el año?")
                     if(respuesta=='si' or respuesta=='SI'):
-                        anio=input("Ingresar año: ")
+                        año=input("Ingresar año: ")
                     else:
-                        anio=dic_pelicula['anio']
+                        año=dic_pelicula['año']
                     respuesta=input("¿Modificar el director?")
                     if(respuesta=='si' or respuesta=='SI'):
                         director=input("Ingresar director: ")
@@ -370,19 +346,19 @@ def menu():
                         sinopsis=dic_pelicula['sinopsis']
                     respuesta=input("¿Modificar el link de la imagen?")
                     if(respuesta=='si' or respuesta=='SI'):
-                        link=input("Ingresar link: ")
+                        enlace=input("Ingresar link: ")
                     else:
-                        link=dic_pelicula['link']
+                        enlace=dic_pelicula['enlace']
                     j={
                         "id":id,
                         "titulo":titulo,
-                        "anio":anio,
+                        "año": año,
                         "director":director,
                         "genero":genero,
                         "sinopsis":sinopsis,
-                        "link":link
+                        "link":enlace
                     }
-                    r=(requests.put("http://127.0.0.1:5000/peliculas/actualizar",json=j))
+                    r=(request.put("http://127.0.0.1:5000/peliculas/actualizar",json=j))
                     print(r.content)
 
         elif (opcion==12):

@@ -1,4 +1,5 @@
 import json
+import requests
 from flask import Flask, jsonify, Response, request
 from http import HTTPStatus
 import threading
@@ -115,8 +116,8 @@ def eliminar_pelicula(id):
             peliculas.remove(pelicula)
             valor=True
     if valor==True:
-        # with open("peliculas.json",'w',encoding='utf-8') as peliculas_json:   # Lo eliminamos del json
-        #     json.dump(peliculas,peliculas_json)
+        with open("peliculas.json",'w',encoding='utf-8') as peliculas_json:   # Lo eliminamos del json
+            json.dump(peliculas,peliculas_json)
         return Response("Eliminado",status=HTTPStatus.OK)
     else:  
         return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
@@ -211,72 +212,72 @@ def menu():
         print("           MENU             ")
         print("----------------------------")
         print("1: Mostrar todas las peliculas")
-        print("3: Mostrar ultimas peliculas agregadas")
-        print("4: Mostrar peliculas con imagenes")
-        print("5: Mostrar directores")
-        print("6: Mostrar peliculas de un director especifico")
-        print("7: Mostrar usuarios")
-        print("8: Mostrar generos")
-        print("9: Eliminar pelicula")
-        print("10: Publicar pelicula")#
-        print("11: Modificar pelicula")#
-        print("12: Salir")
+        print("2: Mostrar ultimas peliculas agregadas")
+        print("3: Mostrar peliculas con imagenes")
+        print("4: Mostrar directores")
+        print("5: Mostrar peliculas de un director especifico")
+        print("6: Mostrar usuarios")
+        print("7: Mostrar generos")
+        print("8: Eliminar pelicula")
+        print("9: Publicar pelicula")
+        print("10: Modificar pelicula")
+        print("11: Salir")
         opcion=int(input("Ingresar opcion: "))
         print("")
 
         if (opcion==1):
-            r=(request.get("http://127.0.0.1:5000/peliculas"))
+            r=(requests.get("http://127.0.0.1:5000/peliculas"))
             r=r.json()
             for i in r:
                 print(i)
 
+
+        elif (opcion==2):
+            r=(requests.get("http://127.0.0.1:5000"))
+            r=r.json()
+            for i in r:
+                print(i)
 
         elif (opcion==3):
-            r=(request.get("http://127.0.0.1:5000"))
-            r=r.json()
-            for i in r:
-                print(i)
-
-        elif (opcion==4):
-            r=(request.get("http://127.0.0.1:5000/peliculas/imagen"))
+            r=(requests.get("http://127.0.0.1:5000/peliculas/imagen"))
             r=r.json()
             for key,value in r.items():
                 print(key," : ",value)
 
-        elif (opcion==5):
-            r=(request.get("http://127.0.0.1:5000/directores"))
+        elif (opcion==4):
+            r=(requests.get("http://127.0.0.1:5000/directores"))
             r=r.json()
             for i in r:
                 print(i)
 
-        elif (opcion==6): 
+        elif (opcion==5): 
             id=input("Ingresar id del director: ")
-            r=(request.get("http://127.0.0.1:5000/directores/"+id))
+            r=(requests.get("http://127.0.0.1:5000/directores/"+id))
+            r=r.json()
+            for i in r:
+                print(i)
+
+        elif (opcion==6):
+            r=(requests.get("http://127.0.0.1:5000/usuarios"))
             r=r.json()
             for i in r:
                 print(i)
 
         elif (opcion==7):
-            r=(request.get("http://127.0.0.1:5000/usuarios"))
+            r=(requests.get("http://127.0.0.1:5000/generos"))
             r=r.json()
             for i in r:
                 print(i)
 
         elif (opcion==8):
-            r=(request.get("http://127.0.0.1:5000/generos"))
-            r=r.json()
-            for i in r:
-                print(i)
-
-        elif (opcion==9):
             if(usuario_privado==False):
                 print("Permiso denegado, inicie sesion.")
             else:
                 id=input("Ingresar id de la pelicula: ")
-                r=(request.delete("http://127.0.0.1:5000/peliculas/eliminar/"+id))
+                r=(requests.delete("http://127.0.0.1:5000/peliculas/eliminar/"+id))
                 print(r.content)
 
-        elif (opcion==10):
+        elif (opcion==9):
             if(usuario_privado==False):
                 print("Permiso denegado, inicie sesion.")
             else:
@@ -296,10 +297,10 @@ def menu():
                     "sinopsis":sinopsis,
                     "enlace":enlace
                 }
-                r=(request.post("http://127.0.0.1:5000/peliculas/publicar",json=j))
+                r=(requests.post("http://127.0.0.1:5000/peliculas/publicar",json=j))
                 print(r.content)
 
-        elif (opcion==11):
+        elif (opcion==10):
             if(usuario_privado==False):
                 print("Permiso denegado, inicie sesion.")
             else:
@@ -351,10 +352,10 @@ def menu():
                         "sinopsis":sinopsis,
                         "enlace":enlace
                     }
-                    r=(request.put("http://127.0.0.1:5000/peliculas/actualizar",json=j))
+                    r=(requests.put("http://127.0.0.1:5000/peliculas/actualizar",json=j))
                     print(r.content)
 
-        elif (opcion==12):
+        elif (opcion==11):
             print("Exit!\n")
             exit()
 

@@ -19,18 +19,7 @@ with open("directores.json",encoding='utf-8') as directores_json:
     directores=json.load(directores_json)
 directores=directores[0]['directores']
 
-#--------------- Muestras todos los usuarios ------------------------
-@app.route("/usuarios")     
-def devolver_usuarios():
-    lista=[]
-    for usuario in usuarios:
-        lista.append(usuario['usuario'])
-    if len(lista)>0:
-        return jsonify(lista)
-    else:
-        return Response("Este usuario no es valido", status=HTTPStatus.NOT_FOUND)
-
-#--------------- Muestra todas las peliculas -------------
+#--------------- MUESTRA TODAS LAS PELICULAS -------------
 @app.route("/peliculas")  
 def devolver_peliculas():
     mostrar_peliculas=[]
@@ -40,34 +29,8 @@ def devolver_peliculas():
         return jsonify(mostrar_peliculas)
     else:
         return Response("La pelicula no ha sido encontrada", status=HTTPStatus.NOT_FOUND)
-
-
-#--------------- Muestra todos los directores ---------------
-@app.route("/directores")   
-def directores_imprimir():
-    lista=[]
-    for pelicula in peliculas:
-        if pelicula['director'] not in lista:
-            lista.append(pelicula['director'])
-    if len(lista)>0:
-        return jsonify(lista)
-    else:
-        return Response("No ha sido encontrado el director", status=HTTPStatus.NOT_FOUND)
-
-#--------------- Muestra todos los generos---------------
-
-@app.route("/generos")      
-def generos_imprimir():
-    lista=[]
-    for pelicula in peliculas:
-        if pelicula['genero'] not in lista:
-            lista.append(pelicula['genero'])
-    if len(lista)>0:
-        return jsonify(lista)
-    else:
-        return Response("No ha sido encontrado el genero buscado", status=HTTPStatus.NOT_FOUND)
-
-#--------------- Muestra las peliculas que tienen portada---------------
+    
+#--------------- MUESTRA PELICULAS CON IMAGENES ---------------
 
 @app.route("/peliculas/imagen")  
 def devolver_peliculas_con_imagen():
@@ -80,7 +43,19 @@ def devolver_peliculas_con_imagen():
     else:
         return Response("Esta pelicula no tiene imagen", status=HTTPStatus.NOT_FOUND)
 
-#--------------- Muestra las peliculas de un director en especifico---------------
+#--------------- MUESTRA TODOS LOS DIRECTORES ---------------
+@app.route("/directores")   
+def directores_imprimir():
+    lista=[]
+    for pelicula in peliculas:
+        if pelicula['director'] not in lista:
+            lista.append(pelicula['director'])
+    if len(lista)>0:
+        return jsonify(lista)
+    else:
+        return Response("No ha sido encontrado el director", status=HTTPStatus.NOT_FOUND)
+
+#--------------- MUESTRA LAS PELICULAS DE UN DIRECTOR EN ESPECIFICO ---------------
 @app.route("/directores/<id>")     
 def devolver_peliculas_director(id):
     id_int=int(id)
@@ -95,8 +70,187 @@ def devolver_peliculas_director(id):
         return jsonify(lista)
     else:
         return Response("Este director no ha sido encontrado", status=HTTPStatus.NOT_FOUND)
+    
+#--------------- MUESTRA TODOS LOS USUARIOS ------------------------
+@app.route("/usuarios")     
+def devolver_usuarios():
+    lista=[]
+    for usuario in usuarios:
+        lista.append(usuario['usuario'])
+    if len(lista)>0:
+        return jsonify(lista)
+    else:
+        return Response("Este usuario no es valido", status=HTTPStatus.NOT_FOUND)
 
-#------------AGREGAR UNA PELICULA------------------
+#--------------- MUESTRA TODOS LOS GENEROS ---------------
+
+@app.route("/generos")      
+def generos_imprimir():
+    lista=[]
+    for pelicula in peliculas:
+        if pelicula['genero'] not in lista:
+            lista.append(pelicula['genero'])
+    if len(lista)>0:
+        return jsonify(lista)
+    else:
+        return Response("No ha sido encontrado el genero buscado", status=HTTPStatus.NOT_FOUND)
+
+#-------------------- AGREGA UN USUARIO------------------
+
+@app.route("/usuarios/agregar", methods=["POST"])     
+def agregar_usuario():                                  
+    datos=request.get_json()                            
+    if datos['usuario'] not in usuarios:     
+        usuarios.append({
+            "usuario":datos['usuario']
+            })
+        # with open("directores.json",'w',encoding='utf-8') as directores_json:
+        #     json.dump(directores,directores_json)
+
+    if (datos['usuario'] not in usuarios):      # Post
+        usuarios.append(datos)
+        # with open("biblioteca.json",'w',encoding='utf-8') as biblioteca_json:   # Lo agregamos al json
+        #     json.dump(peliculas,biblioteca_json)
+        return Response("OK",status=HTTPStatus.OK)
+    else:
+        return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
+
+#------------------- MODIFICA UN USUARIO ----------------------------
+
+
+
+#---------------------- ELIMINA USUARIO ------------------------------
+
+@app.route("/usuarios/eliminar/<usuario>",methods=["DELETE"])      
+def eliminar_usuario(usuario):
+    usuarioa=usuario
+    valor=False
+    for usuario in usuarios:
+        if usuario['usuario']==usuarioa:
+            usuarios.remove(usuario)
+            valor=True
+    if valor==True:
+        with open("usuarios.json",'w',encoding='utf-8') as usuarios_json:   # Lo eliminamos del json
+            json.dump(usuarios,usuarios_json)
+        return Response("Eliminado",status=HTTPStatus.OK)
+    else:  
+        return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
+    
+#-------------------- AGREGAR UN DIRECTOR ------------------
+
+@app.route("/director/agregar", methods=["POST"])   
+def agregar_director():                                  
+    datos=request.get_json()                            
+    if datos['director'] not in directores:     
+        directores.append({
+            "director":datos['director']
+            })
+        with open("directores.json",'w',encoding='utf-8') as directores_json:
+            json.dump(directores,directores_json)
+
+    if (datos['director'] not in directores):      # Post
+        directores.append(datos)
+        # with open("directores.json",'w',encoding='utf-8') as directores_json:   # Lo agregamos al json
+        #     json.dump(directores,directores)
+        return Response("OK",status=HTTPStatus.OK)
+    else:
+        return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
+    
+#------------------ MODIFICAR UN DIRECTOR -------------------------
+
+
+    
+#------------------ ELIMINA UN DIRECTOR ------------------------------
+
+@app.route("/director/eliminar/<director>",methods=["DELETE"])      
+def eliminar_director(director):
+    directora=director
+    valor=False
+    for director in directores:
+        if director['director']==directora:
+            directores.remove(director)
+            valor=True
+    if valor==True:
+        with open("directores.json",'w',encoding='utf-8') as directores_json:   # Lo eliminamos del json
+            json.dump(directores,directores_json)
+        return Response("Eliminado",status=HTTPStatus.OK)
+    else:  
+        return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
+    
+#------------ AGREGA UN GENERO ------------------
+@app.route("/genero/agregar", methods=["POST"])   
+def agregar_genero():                                  
+    datos=request.get_json()                            
+    if datos['genero'] not in peliculas:     
+        peliculas.append({
+            "peliculas":datos['genero']
+            })
+        with open("peliculas.json",'w',encoding='utf-8') as peliculas_json:
+            json.dump(peliculas,peliculas_json)
+
+    if (datos['genero'] not in peliculas):      # Post
+        peliculas.append(datos)
+        # with open("directores.json",'w',encoding='utf-8') as directores_json:   # Lo agregamos al json
+        #     json.dump(directores,directores)
+        return Response("OK",status=HTTPStatus.OK)
+    else:
+        return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
+    
+#------------------ MODIFICAR UN GENERO ------------------------------
+
+
+
+
+#------------------ ELIMINA UN GENERO ------------------------------
+
+@app.route("/peliculas/eliminar/<genero>",methods=["DELETE"])      
+def eliminar_genero(genero):
+    generoa=genero
+    valor=False
+    for genero in peliculas:
+        if peliculas['genero']==generoa:
+            peliculas.remove(genero)
+            valor=True
+    if valor==True:
+        with open("peliculas.json",'w',encoding='utf-8') as peliculas_json:   # Lo eliminamos del json
+            json.dump(peliculas,peliculas_json)
+        return Response("Eliminado",status=HTTPStatus.OK)
+    else:  
+        return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
+
+@app.route("/director/eliminar/<director>",methods=["DELETE"])      
+def eliminar_director(director):
+    directora=director
+    valor=False
+    for director in directores:
+        if director['director']==directora:
+            directores.remove(director)
+            valor=True
+    if valor==True:
+        with open("directores.json",'w',encoding='utf-8') as directores_json:   # Lo eliminamos del json
+            json.dump(directores,directores_json)
+        return Response("Eliminado",status=HTTPStatus.OK)
+    else:  
+        return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
+
+#------------------ ELIMINA UNA PELICULA POR ID ------------------------------
+
+@app.route("/peliculas/eliminar/<int:id>",methods=["DELETE"])      # Elimina una pelicula por id 
+def eliminar_pelicula(id):
+    id_int=int(id)
+    valor=False
+    for pelicula in peliculas:
+        if pelicula['id']==id_int:
+            peliculas.remove(pelicula)
+            valor=True
+    if valor==True:
+        with open("peliculas.json",'w',encoding='utf-8') as peliculas_json:   # Lo eliminamos del json
+            json.dump(peliculas,peliculas_json)
+        return Response("Eliminado",status=HTTPStatus.OK)
+    else:  
+        return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
+    
+#---------------- AGREGAR UNA PELICULA ------------------
 
 @app.route("/peliculas/publicar", methods=["POST"])     # Publica nueva pelicula 
 def comprar_entrada():                                  
@@ -120,25 +274,8 @@ def comprar_entrada():
     else:
         return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
 
-#------------------ Elimina una pelicula por id ------------------------------
 
-@app.route("/peliculas/eliminar/<int:id>",methods=["DELETE"])      # Elimina una pelicula por id 
-def eliminar_pelicula(id):
-    id_int=int(id)
-    valor=False
-    for pelicula in peliculas:
-        if pelicula['id']==id_int:
-            peliculas.remove(pelicula)
-            valor=True
-    if valor==True:
-        with open("peliculas.json",'w',encoding='utf-8') as peliculas_json:   # Lo eliminamos del json
-            json.dump(peliculas,peliculas_json)
-        return Response("Eliminado",status=HTTPStatus.OK)
-    else:  
-        return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
-
-
-#--------- Modifica una pelicula----------------------------
+#--------------------- MODIFICA UNA PELICULA ----------------------------
 
 @app.route("/peliculas/actualizar", methods=["PUT"])    # Modifica pelicula especifica segun id 
 def modificar_pelicula():
@@ -174,88 +311,6 @@ def modificar_pelicula():
     else:
         return Response("ID no encontrado",status=HTTPStatus.NOT_FOUND)
 
-#------------Agrega un usuario------------------
-
-@app.route("/usuarios/agregar", methods=["POST"])     # Publica nueva pelicula 
-def agregar_usuario():                                  
-    datos=request.get_json()                            
-    if datos['usuario'] not in usuarios:     
-        usuarios.append({
-            "usuario":datos['usuario']
-            })
-        # with open("directores.json",'w',encoding='utf-8') as directores_json:
-        #     json.dump(directores,directores_json)
-
-    if (datos['usuario'] not in usuarios):      # Post
-        usuarios.append(datos)
-        # with open("biblioteca.json",'w',encoding='utf-8') as biblioteca_json:   # Lo agregamos al json
-        #     json.dump(peliculas,biblioteca_json)
-        return Response("OK",status=HTTPStatus.OK)
-    else:
-        return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
-
-#------------------ Elimina usuario ------------------------------
-
-@app.route("/usuarios/eliminar/<usuario>",methods=["DELETE"])      
-def eliminar_usuario(usuario):
-    usuarioa=usuario
-    valor=False
-    for usuario in usuarios:
-        if usuario['usuario']==usuarioa:
-            usuarios.remove(usuario)
-            valor=True
-    if valor==True:
-        with open("usuarios.json",'w',encoding='utf-8') as usuarios_json:   # Lo eliminamos del json
-            json.dump(usuarios,usuarios_json)
-        return Response("Eliminado",status=HTTPStatus.OK)
-    else:  
-        return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
-
-
-
-
-
-#--------- Modifica un usuario----------------------------
-
-
-
-#------------Agrega un director------------------
-
-
-
-#------------------ Elimina un genero ------------------------------
-
-@app.route("/peliculas/eliminar/<genero>",methods=["DELETE"])      
-def eliminar_genero(genero):
-    generoa=genero
-    valor=False
-    for genero in peliculas:
-        if peliculas['genero']==generoa:
-            peliculas.remove(genero)
-            valor=True
-    if valor==True:
-        with open("peliculas.json",'w',encoding='utf-8') as peliculas_json:   # Lo eliminamos del json
-            json.dump(peliculas,peliculas_json)
-        return Response("Eliminado",status=HTTPStatus.OK)
-    else:  
-        return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
-
-@app.route("/director/eliminar/<director>",methods=["DELETE"])      
-def eliminar_director(director):
-    directora=director
-    valor=False
-    for director in directores:
-        if director['director']==directora:
-            directores.remove(director)
-            valor=True
-    if valor==True:
-        with open("directores.json",'w',encoding='utf-8') as directores_json:   # Lo eliminamos del json
-            json.dump(directores,directores_json)
-        return Response("Eliminado",status=HTTPStatus.OK)
-    else:  
-        return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
-
-
 #------------------------------#
 #------------------------------#
 
@@ -289,26 +344,25 @@ def menu():
     while True:
         print("           MENU             ")
         print("----------------------------")
-        print("1: Mostrar todas las peliculas")#
-        print("2: Mostrar ultimas peliculas agregadas")#
-        print("3: Mostrar peliculas con imagenes")#
-        print("4: Mostrar directores")#
-        print("5: Mostrar peliculas de un director especifico")#
-        print("6: Mostrar usuarios")#
-        print("7: Mostrar generos")#
-        print("8: Agregar usuario")#
-        print("9: Modificar usuario")
-        print("10: Eliminar usuario")#
-        print("11: Agregar director")
-        print("12: Modificar director")
-        print("13: Eliminar director")#
-        print("14: Agregar genero")
-        print("15: Modificar genero")
-        print("16: Eliminar genero")
-        print("17: Eliminar pelicula")#
-        print("18: Agregar pelicula")#
-        print("19: Modificar pelicula")#
-        print("20: Salir")#
+        print("1: Mostrar todas las peliculas")
+        print("2: Mostrar peliculas con imagenes")
+        print("3: Mostrar directores")
+        print("4: Mostrar peliculas de un director especifico")
+        print("5: Mostrar usuarios")
+        print("6: Mostrar generos")
+        print("7: Agregar usuario")
+        print("8: Modificar usuario")
+        print("9: Eliminar usuario")
+        print("10: Agregar director")
+        print("11: Modificar director")
+        print("12: Eliminar director")
+        print("13: Agregar genero")
+        print("14: Modificar genero")
+        print("15: Eliminar genero")
+        print("16: Eliminar pelicula")
+        print("17: Agregar pelicula")
+        print("18: Modificar pelicula")
+        print("19: Salir")
         opcion=int(input("Ingresar opcion: "))
         print("")
 
@@ -318,45 +372,38 @@ def menu():
             for i in r:
                 print(i)
 
-
         elif (opcion==2):
-            r=(requests.get("http://127.0.0.1:5000"))
-            r=r.json()
-            for i in r:
-                print(i)
-
-        elif (opcion==3):
             r=(requests.get("http://127.0.0.1:5000/peliculas/imagen"))
             r=r.json()
             for key,value in r.items():
                 print(key," : ",value)
 
-        elif (opcion==4):
+        elif (opcion==3):
             r=(requests.get("http://127.0.0.1:5000/directores"))
             r=r.json()
             for i in r:
                 print(i)
 
-        elif (opcion==5): 
+        elif (opcion==4): 
             id=input("Ingresar id del director: ")
             r=(requests.get("http://127.0.0.1:5000/directores/"+id))
             r=r.json()
             for i in r:
                 print(i)
 
-        elif (opcion==6):
+        elif (opcion==5):
             r=(requests.get("http://127.0.0.1:5000/usuarios"))
             r=r.json()
             for i in r:
                 print(i)
 
-        elif (opcion==7):
+        elif (opcion==6):
             r=(requests.get("http://127.0.0.1:5000/generos"))
             r=r.json()
             for i in r:
                 print(i)
         
-        elif (opcion==8):
+        elif (opcion==7):
             if(usuario_privado==False):
                 print("Permiso denegado, inicie sesion.")
             else:
@@ -368,7 +415,7 @@ def menu():
                 r=(requests.post("http://127.0.0.1:5000/usuarios/agregar",json=j))
                 print(r.content)
 
-        elif (opcion==9):
+        elif (opcion==8):
             if(usuario_privado==False):
                 print("Permiso denegado, inicie sesion.")
             else:
@@ -397,7 +444,7 @@ def menu():
 
                 
 
-        elif (opcion==10):
+        elif (opcion==9):
             if(usuario_privado==False):
                 print("Permiso denegado, inicie sesion.")
             else:
@@ -405,7 +452,7 @@ def menu():
                 r=(requests.delete("http://127.0.0.1:5000/usuarios/eliminar/"+usuario))
                 print(r.content)
 
-        elif (opcion==11):
+        elif (opcion==10):
             if(usuario_privado==False):
                 print("Permiso denegado, inicie sesion.")
             else:
@@ -417,7 +464,7 @@ def menu():
                 r=(requests.post("http://127.0.0.1:5000/director/agregar",json=j))
                 print(r.content)
 
-        elif (opcion==13):
+        elif (opcion==12):
             if(usuario_privado==False):
                 print("Permiso denegado, inicie sesion.")
             else:
@@ -425,7 +472,7 @@ def menu():
                 r=(requests.delete("http://127.0.0.1:5000/director/eliminar/"+director))
                 print(r.content)
         
-        elif (opcion==16):
+        elif (opcion==15):
             if(usuario_privado==False):
                 print("Permiso denegado, inicie sesion.")
             else:
@@ -433,7 +480,7 @@ def menu():
                 r=(requests.delete("http://127.0.0.1:5000/peliculas/eliminar/"+genero))
                 print(r.content)
        
-        elif (opcion==17):
+        elif (opcion==16):
             if(usuario_privado==False):
                 print("Permiso denegado, inicie sesion.")
             else:
@@ -441,7 +488,7 @@ def menu():
                 r=(requests.delete("http://127.0.0.1:5000/peliculas/eliminar/"+id))
                 print(r.content)
 
-        elif (opcion==18):
+        elif (opcion==17):
             if(usuario_privado==False):
                 print("Permiso denegado, inicie sesion.")
             else:
@@ -464,7 +511,7 @@ def menu():
                 r=(requests.post("http://127.0.0.1:5000/usuarios/publicar",json=j))
                 print(r.content)
 
-        elif (opcion==19):
+        elif (opcion==18):
             if(usuario_privado==False):
                 print("Permiso denegado, inicie sesion.")
             else:
@@ -519,7 +566,7 @@ def menu():
                     r=(requests.put("http://127.0.0.1:5000/peliculas/actualizar",json=j))
                     print(r.content)
 
-        elif (opcion==20):
+        elif (opcion==19):
             print("Exit!\n")
             exit()
 

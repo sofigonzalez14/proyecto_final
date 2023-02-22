@@ -1,0 +1,1348 @@
+{
+	"info": {
+		"_postman_id": "c5c38e5f-06e6-4fc7-93a2-dd51123e51f8",
+		"name": "Programacion II",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25861431"
+	},
+	"item": [
+		{
+			"name": "Usuarios mostrar",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200| Todos los Usuarios",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/usuarios",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"usuarios"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 16:36:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"sofigonzalez\",\n    \"tomasmerlo\",\n    \"macahuarte\"\n]"
+				}
+			]
+		},
+		{
+			"name": "Mostrar Peliculas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/peliculas",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"peliculas"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200| Todas las Peliculas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/peliculas",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"peliculas"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 16:47:32 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "217"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"Rapidos y Furiosos 2 \",\n    \"High School Musical 2\",\n    \"Titanic\",\n    \"Una esposa de mentira\",\n    \"Spider-Man: sin camino a casa\",\n    \"Cadena perpetua\",\n    \"El padrino\",\n    \"El caballero oscuro\",\n    \"12 hombres sin piedad\",\n    \"La lista de Schindler\"\n]"
+				}
+			]
+		},
+		{
+			"name": "Mostrar Peliculas con imagen",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/peliculas/imagen",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"peliculas",
+						"imagen"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200| Peliculas con imagen",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/peliculas/imagen",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"peliculas",
+								"imagen"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 16:48:23 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1766"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"12 hombres sin piedad\": \"https://pics.filmaffinity.com/Doce_hombres_sin_piedad-586969758-large.jpg\",\n    \"Cadena perpetua\": \"https://pics.filmaffinity.com/Cadena_perpetua-211849172-large.jpg\",\n    \"El caballero oscuro\": \"https://www.lavanguardia.com/peliculas-series/images/movie/poster/2008/7/w1280/8QDQExnfNFOtabLDKqfDQuHDsIg.jpg\",\n    \"El padrino\": \"https://ca-times.brightspotcdn.com/dims4/default/2314d53/2147483647/strip/true/crop/2093x3000+0+0/resize/1200x1720!/quality/80/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F47%2F95%2Fcbf137037b833a53a724fde3f53e%2Fcfdj8emgq7504ddbn1ibedbziqes-ufxmz-ypi0gordml8oigvx-qxnfyjdexxje48b9jsnhzr2hbbtg9-5bm2ewo-sfvcb9svtpufonjqohy-raixysjlgk7fagt3voiify9grgz0pkj-sysmn1pfblqffyiedjz8nszvhrheowg2imuyrmeklodsplgwx3wmznmclm-gx-cvc7m0lf7h7crd5meu1oztvsd9po-e1pldrzmjwobcwk9h7avlf0y4ew56xkel9filhfyidkf9rpndq4ic7-snlvnin85poimejwzyp6rq-q8qsqvmlvl2xaq3rsy-7axvtxqcpqinvjubaglw5risa6bqkfrpqowvdt29rhgoxnbsbi3dnwzldfjuimuizsg2hody3cu-y1kgk\",\n    \"High School Musical 2\": \"https://static.wikia.nocookie.net/doblaje/images/e/e2/HSM2poster.jpg/revision/latest?cb=20211019174851&path-prefix=es\",\n    \"La lista de Schindler\": \"https://i.ytimg.com/vi/7q-ETFeMxwI/mqdefault.jpg\",\n    \"Rapidos y Furiosos 2 \": \"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/2fast2furious-logo.svg/1200px-2fast2furious-logo.svg.png\",\n    \"Spider-Man: sin camino a casa\": \"https://play-lh.googleusercontent.com/i0DAXWIGliyfSy6FWsbt7N_i1530o_rtkM220WgVGpRlI4OeOuIz-kL3JmZWFa3u7bjsaAfOdfUUMZSE1A\",\n    \"Titanic\": \"https://pics.filmaffinity.com/Titanic-321994924-mmed.jpg\",\n    \"Una esposa de mentira\": \"https://prod-ripcut-delivery.disney-plus.net/v1/variant/star/54133C0EF44EFFF93EBA5847D019FB976B6C6ECC5CE40BB2B7BAB590EA625720/scale?width=1200&aspectRatio=1.78&format=jpeg\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Mostar Directores",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/directores",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"directores"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200| Mostar Directores",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/directores",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"directores"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 16:50:33 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "167"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"Justin Lin\",\n    \"Kenny Ortega\",\n    \"James Cameron\",\n    \"Dennis Dugan\",\n    \"Jon Watts\",\n    \"Frank Darabont\",\n    \"Francis Ford Coppola\",\n    \"Christopher Nolan\",\n    \"Sidney Lumet\",\n    \"Steven Spielberg\"\n]"
+				}
+			]
+		},
+		{
+			"name": "Pelicula por ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/directores/id",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"directores",
+						"id"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200| Pelicula por ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/directores/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"directores",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 17:09:21 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"Rapidos y Furiosos 2 \"\n]"
+				},
+				{
+					"name": "500| Pelicula por ID",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/directores/A",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"directores",
+								"A"
+							]
+						}
+					},
+					"status": "INTERNAL SERVER ERROR",
+					"code": 500,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 17:09:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "265"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "<!doctype html><html lang=en><title>500 Internal Server Error</title><h1>Internal Server Error</h1><p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>"
+				}
+			]
+		},
+		{
+			"name": "Mostrar Generos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/generos",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"generos"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200| Mostrar Generos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/generos",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"generos"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 17:18:21 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "58"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    \"Accion\",\n    \"Musical\",\n    \"Romance\",\n    \"Comedia\",\n    \"Drama\",\n    \"Crimen\"\n]"
+				}
+			]
+		},
+		{
+			"name": "Agregar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"usuario\": \"flore\",\r\n        \"contrasena\": \"1234\"\r\n\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios/agregar",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"agregar"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200| Agregar Usuario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"usuario\": \"flore\",\r\n        \"contrasena\": \"1234\"\r\n\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/usuarios/agregar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"usuarios",
+								"agregar"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 17:33:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "8"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "Agregado"
+				}
+			]
+		},
+		{
+			"name": "Agregar Director",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"id\":7,\r\n            \"director\" : \"Macarena Huarte\"\r\n         }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/director/agregar",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"director",
+						"agregar"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200| Agregar Director",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"id\":7,\r\n            \"director\" : \"Macarena Huarte\"\r\n         }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/director/agregar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"director",
+								"agregar"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 17:43:44 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "OK"
+				}
+			]
+		},
+		{
+			"name": "Agregar Genero",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"genero\" : \"policial\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/genero/agregar",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"genero",
+						"agregar"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200| Agregar Genero",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"genero\" : \"policial\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/genero/agregar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"genero",
+								"agregar"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 17:52:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "OK"
+				}
+			]
+		},
+		{
+			"name": "Eliminar Usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/usuarios/eliminar/usuario",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"usuarios",
+						"eliminar",
+						"usuario"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200| Eliminar Usuario",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/usuarios/eliminar/macahuarte",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"usuarios",
+								"eliminar",
+								"macahuarte"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 17:35:27 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "9"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "Eliminado"
+				},
+				{
+					"name": "400| Eliminar Usuario",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/usuarios/eliminar/usuario incorrecto",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"usuarios",
+								"eliminar",
+								"usuario incorrecto"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 17:36:10 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "20"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "Solicitud incorrecta"
+				}
+			]
+		},
+		{
+			"name": "Eliminar Director",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/director/eliminar/director",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"director",
+						"eliminar",
+						"director"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200| Eliminar Director",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/director/eliminar/Christopher Nolan",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"director",
+								"eliminar",
+								"Christopher Nolan"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 17:47:38 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "9"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "Eliminado"
+				},
+				{
+					"name": "400| Eliminar Director",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/director/eliminar/director incorrecto",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"director",
+								"eliminar",
+								"director incorrecto"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 17:48:07 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "20"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "Solicitud incorrecta"
+				}
+			]
+		},
+		{
+			"name": "Eliminar pelicula por ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/peliculas/eliminar/ID",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"peliculas",
+						"eliminar",
+						"ID"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200| Eliminar pelicula por ID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/peliculas/eliminar/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"peliculas",
+								"eliminar",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 18:20:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "9"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "Eliminado"
+				},
+				{
+					"name": "500| Eliminar pelicula por ID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/peliculas/eliminar/b",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"peliculas",
+								"eliminar",
+								"b"
+							]
+						}
+					},
+					"status": "INTERNAL SERVER ERROR",
+					"code": 500,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 18:20:55 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "265"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "<!doctype html><html lang=en><title>500 Internal Server Error</title><h1>Internal Server Error</h1><p>The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.</p>"
+				}
+			]
+		},
+		{
+			"name": "Publicar Pelicula",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"titulo\": \"Rapidos y Furiosos 2 \"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/peliculas/publicar",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"peliculas",
+						"publicar"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200| Publicar Pelicula",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": 25,\r\n        \"titulo\": \"las kunfi panda\",\r\n        \"ano\": \"2025\",\r\n        \"director\": \"Justin Lin\",\r\n        \"genero\": \"policial\",\r\n        \"sinopsis\": \" a fijate vos \",\r\n        \"enlace\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/2fast2furious-logo.svg/1200px-2fast2furious-logo.svg.png\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/peliculas/publicar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"peliculas",
+								"publicar"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 18:21:49 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "OK"
+				}
+			]
+		},
+		{
+			"name": "Modificar Pelicula",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/peliculas/actualizar",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"peliculas",
+						"actualizar"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200| Modificar Pelicula",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"id\" : 5,\r\n            \"titulo\" : \"maca\" ,\r\n            \"año\" : \"2021\" ,\r\n            \"director\" : \"Jon Watts\" ,\r\n            \"genero\" : \"Accion\" ,\r\n            \"sinopsis\" : \"Tras descubrirse la identidad secreta de Peter Parker como Spider-Man, la vida del joven se vuelve una locura. Peter le pide ayuda al Doctor Strange para recuperar su vida, pero algo sale mal y provoca una fractura en el multiverso.\" ,\r\n            \"enlace\" : \"https://play-lh.googleusercontent.com/i0DAXWIGliyfSy6FWsbt7N_i1530o_rtkM220WgVGpRlI4OeOuIz-kL3JmZWFa3u7bjsaAfOdfUUMZSE1A\"\r\n         }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/peliculas/actualizar",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"peliculas",
+								"actualizar"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "Werkzeug/2.2.3 Python/3.9.2"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 22 Feb 2023 18:35:13 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "OK"
+				}
+			]
+		}
+	]
+}

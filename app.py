@@ -98,20 +98,20 @@ def generos_imprimir():
 
 #--------------- Agrega un usuario ---------------
 
-@app.route("/usuarios/agregar", methods=["POST"])     # Publica nueva pelicula 
+@app.route("/usuarios/agregar", methods=["POST"])      
 def agregar_usuario():                                  
     datos=request.get_json()                            
     if datos['usuario'] not in usuarios:     
         usuarios.append({
             "usuario":datos['usuario']
             })
-        # with open("directores.json",'w',encoding='utf-8') as directores_json:
-        #     json.dump(directores,directores_json)
+        with open("directores.json",'w',encoding='utf-8') as directores_json:
+            json.dump(directores,directores_json)
 
-    if (datos['usuario'] not in usuarios):      # Post
+    if (datos['usuario'] not in usuarios):      
         usuarios.append(datos)
-        # with open("biblioteca.json",'w',encoding='utf-8') as biblioteca_json:   # Lo agregamos al json
-        #     json.dump(peliculas,biblioteca_json)
+        with open("usuarios.json",'w',encoding='utf-8') as usuarios_json:   # Lo agregamos al json
+            json.dump(usuarios,usuarios_json)
         return Response("Agregado",status=HTTPStatus.OK)
     else:
         return Response("Ocurrio un error",status=HTTPStatus.BAD_REQUEST)
@@ -146,8 +146,8 @@ def agregar_director():
 
     if (datos['director'] not in directores):      # Post
         directores.append(datos)
-        # with open("directores.json",'w',encoding='utf-8') as directores_json:   
-        #     json.dump(directores,directores)
+        with open("directores.json",'w',encoding='utf-8') as directores_json:   
+            json.dump(directores,directores)
         return Response("OK",status=HTTPStatus.OK)
     else:
         return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
@@ -182,8 +182,8 @@ def agregar_genero():
 
     if (datos['genero'] not in peliculas):      # Post
         peliculas.append(datos)
-        # with open("directores.json",'w',encoding='utf-8') as directores_json:   
-        #     json.dump(directores,directores)
+        with open("directores.json",'w',encoding='utf-8') as directores_json:   
+            json.dump(directores,directores)
         return Response("OK",status=HTTPStatus.OK)
     else:
         return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
@@ -235,13 +235,13 @@ def comprar_entrada():
             "id":id,
             "director":datos['director']
             })
-        # with open("directores.json",'w',encoding='utf-8') as directores_json:
-        #     json.dump(directores,directores_json)
+        with open("directores.json",'w',encoding='utf-8') as directores_json:
+            json.dump(directores,directores_json)
 
     if (datos['id'] not in peliculas):      # Post
         peliculas.append(datos)
-        # with open("biblioteca.json",'w',encoding='utf-8') as biblioteca_json:   
-        #     json.dump(peliculas,biblioteca_json)
+        with open("biblioteca.json",'w',encoding='utf-8') as biblioteca_json:   
+            json.dump(peliculas,biblioteca_json)
         return Response("OK",status=HTTPStatus.OK)
     else:
         return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
@@ -275,8 +275,8 @@ def modificar_pelicula():
                 if "enlace" in datos:
                     pelicula['enlace']=datos["enlace"]
                 
-                # with open("biblioteca.json",'w',encoding='utf-8') as biblioteca_json:   
-                #     json.dump(peliculas,biblioteca_json)
+                with open("peliculas.json",'w',encoding='utf-8') as peliculas_json:   
+                    json.dump(peliculas,peliculas_json)
 
                 return Response("Modificada",status=HTTPStatus.OK)
     else:

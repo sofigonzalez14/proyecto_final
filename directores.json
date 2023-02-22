@@ -40,6 +40,44 @@
          {
             "id":10,
             "director" : "Steven Spielberg"
+         },
+         {
+            "id":11,
+            "director" : "Adrián Molina"
+         },
+          {
+            "id":12,
+            "director" : "Juan José Campanella"
+         },
+          {
+            "id":13,
+            "director" : "Andrew Adamson"
+         },
+          {
+            "id":14,
+            "director" : "Lev L. Spiro"
+         },
+          {
+            "id":15,
+            "director" : "John Lasseter"
+         },
+          {
+            "id":16,
+            "director" : "Brad Bird"
+         },
+         {
+            "id":17,
+            "director" : "Nancy Meyers"
+         },{
+            "id":18,
+            "director" : "Josh Safdie"
+         },{
+            "id":19,
+            "director" : "Antoine Fuqua"
+         },
+         {
+            "id":20,
+            "director" : "Steve Lote"
          }
         ]
     }

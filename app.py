@@ -464,7 +464,7 @@ def menu():
                     "sinopsis":sinopsis,
                     "enlace":enlace
                 }
-                r=(requests.post("http://127.0.0.1:5000/usuarios/publicar",json=j))
+                r=(requests.post("http://127.0.0.1:5000/peliculas/publicar",json=j))
                 print(r.content)
 
         elif (opcion==18):

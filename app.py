@@ -1,4 +1,5 @@
 import json
+import math
 import requests
 from flask import Flask, jsonify, Response, request
 from http import HTTPStatus
@@ -337,8 +338,29 @@ def menu():
         if (opcion==1):
             r=(requests.get("http://127.0.0.1:5000/peliculas"))
             r=r.json()
-            for i in r:
-                print(i)
+            contador = 0
+            actual = 1
+            cantidad_peliculas = len(peliculas)
+            paginas_totales = math.trunc(cantidad_peliculas/5)
+            if cantidad_peliculas % 5 > 0:
+                paginas_totales = paginas_totales + 1
+            print (paginas_totales)
+            os.system('cls')   
+            for pelicula in peliculas:
+                contador = contador + 1
+                print ('Pelicula:',pelicula["titulo"])
+                if contador == 5:
+                    print ('Pagina '+ str(actual) +'/'+ str(paginas_totales)+'')
+                    actual = actual + 1
+                    continuar = input('Presione una tecla para continuar...')
+                    contador = 0
+                    os.system('cls')   
+            while(True):
+                continuar= input('Enter para continuar...')
+                if continuar != "":    
+                    print('Error, presione enter')
+                else:
+                    break
 
         elif (opcion==2):
             r=(requests.get("http://127.0.0.1:5000/peliculas/imagen"))

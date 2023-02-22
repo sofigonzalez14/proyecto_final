@@ -283,34 +283,34 @@ def modificar_pelicula():
     else:
         return Response("ID no encontrado",status=HTTPStatus.NOT_FOUND)
 
-#----------------------------
-
 print("BIENVENIDOS AL CINE")
-print("Estas registrado en esta pagina?")
 
-validar_registro = input("Ingresa Si/No: ")
-lower_input = validar_registro.lower()
-if lower_input != "si":
-    print ("Como usuario publico solo podes ver los titulos de las ultimas 5 peliculas")
-
-#----------DEVUELVE LAS ULTIMAS 5 PELIS--------------
-    for pelicula in peliculas[-5:]:
-        print(pelicula, end="\n")
-    print("Gracias por visitarnos")
-else: # Ingreso del usuario privado
-    ingreso_usuario = input( "Ingrese su usuario: ")
-    ingreso_contrasenia= input( "Ingrese su contraseña: ")
-    for usuario in usuarios:
-        if usuario == ingreso_usuario and usuario["contrasenia"] == ingreso_contrasenia:
-            print("Usuario logueado con exito")
-            print("Arranca tu experiencia como usuario registrado")
-            usuario_privado = True
-
-usuario_privado=True
+while True:
+    registro = input("Esta registrado? ")
+    registro_low = registro.lower()
+    os.system('cls') 
+    if registro_low == "si":
+        ingreso_usuario = input( "Ingrese su usuario: ")
+        ingreso_contrasenia= input( "Ingrese su contraseña: ")
+        break
+        for usuario in usuarios:
+            if usuario == ingreso_usuario and usuario["contrasena"] == ingreso_contrasenia:
+                print("Usuario logueado con exito")
+                print("Arranca tu experiencia como usuario registrado")
+                usuario_privado = True
+            else:
+                usuario_privado = False
+    else:
+        print ("Como usuario publico solo podes ver los titulos de las ultimas 5 peliculas: ")
+        for pelicula in peliculas[-5:]:
+            print("Pelicula: ", pelicula['titulo'], end="\n")          #----------DEVUELVE LAS ULTIMAS 5 PELIS--------------
+        print("Gracias por visitarnos")
+        
+usuario_privado = True
 
 def menu():
     print("")
-    while True:
+    while registro_low == 'si':
         print("           MENU             ")
         print("----------------------------")
         print("1: Mostrar todas las peliculas")

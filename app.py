@@ -1,5 +1,6 @@
 import json
 import math
+import time
 import requests
 from flask import Flask, jsonify, Response, request
 from http import HTTPStatus
@@ -195,8 +196,8 @@ def agregar_genero():
 def eliminar_genero(genero):
     generoa=genero
     valor=False
-    for genero in peliculas:
-        if peliculas['genero']==generoa:
+    for pelicula in peliculas:
+        if pelicula['genero']==generoa:
             peliculas.remove(genero)
             valor=True
     if valor==True:
@@ -301,10 +302,32 @@ while True:
             else:
                 usuario_privado = False
     else:
-        print ("Como usuario publico solo podes ver los titulos de las ultimas 5 peliculas: ")
-        for pelicula in peliculas[-5:]:
-            print("Pelicula: ", pelicula['titulo'], end="\n")          #----------DEVUELVE LAS ULTIMAS 5 PELIS--------------
-        print("Gracias por visitarnos")
+        contador = 0
+        actual = 1
+        cantidad_peliculas = len(peliculas)
+        paginas_totales = math.trunc(cantidad_peliculas/10)
+        if cantidad_peliculas % 5 > 0:
+            paginas_totales = paginas_totales + 1
+        print (paginas_totales)
+        os.system('cls')
+        print ("Como usuario publico solo podes ver los titulos de las ultimas 10 peliculas: ")   
+        for pelicula in peliculas[-10:]:
+            contador = contador + 1
+            print ('Pelicula:',pelicula["titulo"])
+            if contador == 5:
+                print ('Pagina '+ str(actual) +'/'+ str(paginas_totales)+'')
+                actual = actual + 1
+                continuar = input('Presione una tecla para continuar...')
+                contador = 0
+                os.system('cls')   
+        while(True):
+            continuar= input('Enter para continuar...')
+            if continuar != "":    
+                print('Error, presione enter')
+            else:
+                break
+
+        
         
 usuario_privado = True
 
@@ -331,7 +354,8 @@ def menu():
         print("16: Eliminar pelicula")
         print("17: Agregar pelicula")
         print("18: Modificar pelicula")
-        print("19: Salir")
+        print("19: Comentarios")
+        print("20: Salir")
         opcion=int(input("Ingresar opcion: "))
         print("")
 
@@ -543,8 +567,36 @@ def menu():
                     }
                     r=(requests.put("http://127.0.0.1:5000/peliculas/actualizar",json=j))
                     print(r.content)
+
+        elif (opcion == 19):
+            flag = False
+            buscar = input('¿Que pelicula desea buscar?: ')
+            for pelicula in peliculas:
+                if buscar.lower() in pelicula['titulo'].lower() :
+                    if pelicula['comentarios'] == {}:
+                        print("Pelicula:",pelicula['titulo'])
+                        print('Esta pelicula aun no tiene comentarios...')
+                        time.sleep(2)
+                        flag = True
+                    flag = True
+                    print('Hemos encontrado esto para ti: \n')
+                    print("titulo:",pelicula['titulo'])
+                    print('año:',pelicula['año'])
+                    print('director:',pelicula['director'])
+                    print('genero:',pelicula['genero'])
+                    print('sinopsis:',pelicula['sinopsis'])
+                    print('enlace:',pelicula['enlace'])
+                    print('comentarios: ')
+                    for x, y in pelicula['comentarios'].items():
+                        print(f"{x}: {y}")
+                    while(True):
+                        continuar= input('Enter para continuar...')
+                        if continuar != "":    
+                            print('Error, presione enter')
+                        else:
+                            break
             
-        elif (opcion==19):
+        elif (opcion==20):
             print("Nos vemos!\n")
             exit()
 

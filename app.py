@@ -117,6 +117,23 @@ def agregar_usuario():
 
 #------------------- MODIFICA UN USUARIO ----------------------------
 
+@app.route("/usuarios/actualizar", methods=["PUT"])   
+def modificar_usuarios():
+    datos=request.get_json()
+    if "usuarios" in datos:
+        for usuario in usuarios:
+            if(datos['usuario']==usuario['usuario']):
+                if "usuario" in datos:
+                    usuario['usuario']=datos["usuario"]
+                if "contrasena" in datos:
+                    usuario['contrasena']=datos["contrasena"]   
+                    with open("usuarios.json",'w',encoding='utf-8') as usuarios_json:   # Modificamos el json
+                        json.dump(usuarios,usuarios_json)
+
+                return Response("OK",status=HTTPStatus.OK)
+    else:
+        return Response("Usuario no encontrado",status=HTTPStatus.NOT_FOUND)
+
 
 
 #---------------------- ELIMINA USUARIO ------------------------------
@@ -419,26 +436,29 @@ def menu():
             if(usuario_privado==False):
                 print("Permiso denegado, inicie sesion.")
             else:
-                usuario=input("Ingresar usuario: ")
+                usuario=(input("Ingresar usuario: "))
                 valor=False
                 for usuario in usuarios:
                     if usuario==usuario['usuario']:
                         valor=True
+                        dic_usuario=usuario
                 if valor==False:
-                    print("Usuario no encontrado")
+                    print("usuario no encontrado")
                 else:
                     respuesta=input("¿Modificar el usuario?")
                     if(respuesta=='si' or respuesta=='SI'):
                         usuario=input("Ingresar usuario: ")
                     else:
-                        respuesta=input("¿Modificar el contrasena?")
+                        usuario=dic_usuario['usuario']
+                    respuesta=input("¿Modificar la contrasena?")
                     if(respuesta=='si' or respuesta=='SI'):
                         contrasena=input("Ingresar contrasena: ")
+                    
                     j={
                         "usuario":usuario,
                         "contrasena":contrasena,
                     }
-                    r=(requests.put("http://127.0.0.1:5000/peliculas/actualizar",json=j))
+                    r=(requests.put("http://127.0.0.1:5000/usuarios/actualizar",json=j))
                     print(r.content)
 
 

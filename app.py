@@ -328,7 +328,7 @@ def menu():
         print("14: Modificar genero")
         print("15: Eliminar genero")#
         print("16: Eliminar pelicula")
-        print("17: Agregar pelicula")#
+        print("17: Agregar pelicula")
         print("18: Modificar pelicula")
         print("19: Salir")
         opcion=int(input("Ingresar opcion: "))

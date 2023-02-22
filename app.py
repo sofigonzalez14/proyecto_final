@@ -278,7 +278,7 @@ def modificar_pelicula():
                 # with open("biblioteca.json",'w',encoding='utf-8') as biblioteca_json:   
                 #     json.dump(peliculas,biblioteca_json)
 
-                return Response("OK",status=HTTPStatus.OK)
+                return Response("Modificada",status=HTTPStatus.OK)
     else:
         return Response("ID no encontrado",status=HTTPStatus.NOT_FOUND)
 

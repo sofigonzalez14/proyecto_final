@@ -49,9 +49,9 @@ def devolver_peliculas_con_imagen():
 @app.route("/directores")   
 def directores_imprimir():
     lista=[]
-    for pelicula in peliculas:
-        if pelicula['director'] not in lista:
-            lista.append(pelicula['director'])
+    for director in directores:
+        if director['director'] not in lista:
+            lista.append(director['director'])
     if len(lista)>0:
         return jsonify(lista)
     else:
@@ -128,10 +128,14 @@ def eliminar_usuario(usuario):
         if usuario['usuario']==usuarioa:
             usuarios.remove(usuario)
             valor=True
+            with open("usuarios.json",'w',encoding='utf-8') as usuarios_json:
+                json.dump(usuarios,usuarios_json)
     if valor==True:
-        with open("usuarios.json",'w',encoding='utf-8') as usuarios_json:   
-            json.dump(usuarios,usuarios_json)
+
         return Response("Eliminado",status=HTTPStatus.OK)
+           
+            
+        
     else:  
         return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
 
@@ -148,9 +152,9 @@ def agregar_director():
 
     if (datos['director'] not in directores):      # Post
         directores.append(datos)
-        with open("directores.json",'w',encoding='utf-8') as directores_json:   
-            json.dump(directores,directores)
-        return Response("OK",status=HTTPStatus.OK)
+        #with open("directores.json",'w',encoding='utf-8') as directores_json:   
+        #    json.dump(directores,directores)
+        return Response("Agregado",status=HTTPStatus.OK)
     else:
         return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
 
@@ -179,13 +183,13 @@ def agregar_genero():
         peliculas.append({
             "peliculas":datos['genero']
             })
-        with open("peliculas.json",'w',encoding='utf-8') as peliculas_json:
-            json.dump(peliculas,peliculas_json)
+        #with open("peliculas.json",'w',encoding='utf-8') as peliculas_json:
+        #    json.dump(peliculas,peliculas_json)
 
     if (datos['genero'] not in peliculas):      # Post
         peliculas.append(datos)
-        with open("directores.json",'w',encoding='utf-8') as directores_json:   
-            json.dump(directores,directores)
+        #with open("directores.json",'w',encoding='utf-8') as directores_json:   
+        #    json.dump(directores,directores)
         return Response("OK",status=HTTPStatus.OK)
     else:
         return Response("Solicitud incorrecta",status=HTTPStatus.BAD_REQUEST)
